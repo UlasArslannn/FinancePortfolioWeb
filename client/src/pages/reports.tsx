@@ -3,8 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AssetAllocationChart } from "@/components/asset-allocation-chart";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { AssetAllocation, AssetDetail } from "@shared/schema";
+import { useDisplayCurrency } from "@/lib/currency-context";
 
 export default function Reports() {
+  const { formatDisplayCurrency } = useDisplayCurrency();
+
   const { data: allocation, isLoading: allocationLoading } = useQuery<AssetAllocation[]>({
     queryKey: ["/api/portfolio/allocation"],
   });
@@ -13,13 +16,7 @@ export default function Reports() {
     queryKey: ["/api/portfolio/details"],
   });
 
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("tr-TR", {
-      style: "currency",
-      currency: "TRY",
-      minimumFractionDigits: 2,
-    }).format(amount);
-  };
+  const formatCurrency = (amount: number) => formatDisplayCurrency(amount);
 
   const getAssetsByType = (type: string) => {
     return assets?.filter((asset) => asset.type === type) || [];
@@ -49,7 +46,7 @@ export default function Reports() {
             {allocationLoading ? (
               <div className="h-[300px] w-full bg-muted animate-pulse rounded" />
             ) : (
-              <AssetAllocationChart data={allocation || []} />
+              <AssetAllocationChart data={allocation || []} assets={assets || []} />
             )}
           </CardContent>
         </Card>

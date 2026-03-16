@@ -1,11 +1,14 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import type { MonthlyPerformance } from "@shared/schema";
+import { useDisplayCurrency } from "@/lib/currency-context";
 
 interface MonthlyPerformanceChartProps {
   data: MonthlyPerformance[];
 }
 
 export function MonthlyPerformanceChart({ data }: MonthlyPerformanceChartProps) {
+  const { hideAmounts } = useDisplayCurrency();
+
   if (data.length === 0) {
     return (
       <div className="flex items-center justify-center h-[300px] text-muted-foreground">
@@ -20,7 +23,7 @@ export function MonthlyPerformanceChart({ data }: MonthlyPerformanceChartProps) 
         <div className="bg-popover border border-popover-border rounded-md p-3 shadow-md">
           <p className="font-medium">{payload[0].payload.month}</p>
           <p className="text-sm text-primary">
-            {payload[0].value.toLocaleString("tr-TR", {
+            {hideAmounts ? "****" : payload[0].value.toLocaleString("tr-TR", {
               style: "currency",
               currency: "TRY",
             })}

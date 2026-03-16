@@ -3,13 +3,17 @@ import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
 import { tr } from "date-fns/locale";
 import type { Transaction } from "@shared/schema";
+import { useDisplayCurrency } from "@/lib/currency-context";
 
 interface TransactionTableProps {
   transactions: Transaction[];
 }
 
 export function TransactionTable({ transactions }: TransactionTableProps) {
+  const { hideAmounts } = useDisplayCurrency();
+
   const formatCurrency = (amount: number, currency: string) => {
+    if (hideAmounts) return "****";
     const symbols: Record<string, string> = {
       TRY: "₺",
       USD: "$",

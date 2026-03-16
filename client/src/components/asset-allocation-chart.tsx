@@ -19,9 +19,57 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 const INDIVIDUAL_PALETTE = [
-  "#3b82f6", "#10b981", "#f59e0b", "#ef4444",
-  "#8b5cf6", "#06b6d4", "#ec4899", "#f97316",
-  "#14b8a6", "#84cc16", "#6366f1", "#a855f7",
+  // Kırmızı grubu
+  "#e63946",
+  "#c62828",
+  "#ff5252",
+  // Turuncu grubu
+  "#ff9800",
+  "#ff5722",
+  "#ffab40",
+  // Sarı grubu
+  "#ffeb3b",
+  "#ffd54f",
+  "#f9a825",
+  // Yeşil grubu
+  "#4caf50",
+  "#1de9b6",
+  "#66bb6a",
+  "#26a69a",
+  "#00897b",
+  "#aed581",
+  // Mavi grubu
+  "#2196f3",
+  "#42a5f5",
+  "#0d47a1",
+  "#00bcd4",
+  "#26c6da",
+  "#0277bd",
+  // Mor / pembe grubu
+  "#9c27b0",
+  "#ab47bc",
+  "#7b1fa2",
+  "#f06292",
+  "#e91e63",
+  "#ad1457",
+  "#7986cb",
+  "#5c6bc0",
+  // Kahve / toprak grubu
+  "#8d6e63",
+  "#6d4c41",
+  "#bcaaa4",
+  "#a1887f",
+  // Limon / fıstık grubu
+  "#d4e157",
+  "#c6e000",
+  "#9ccc65",
+  // Deniz / çivit grubu
+  "#1565c0",
+  "#283593",
+  "#0097a7",
+  // Altın / gül grubu
+  "#f06292",
+  "#f48fb1",
 ];
 
 type ViewMode = "category" | "individual";

@@ -6,15 +6,16 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Plus, TrendingUp, TrendingDown, Wallet, Trash2 } from "lucide-react";
+import { Plus, TrendingUp, TrendingDown, Wallet, Trash2, RefreshCw, Repeat } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { useDisplayCurrency } from "@/lib/currency-context";
 import { z } from "zod";
-import type { Income, Expense, BudgetSummary } from "@shared/schema";
-import { incomeCategories, expenseCategories, insertIncomeSchema, insertExpenseSchema } from "@shared/schema";
+import type { Income, Expense, BudgetSummary, RecurringIncome, RecurringExpense } from "@shared/schema";
+import { incomeCategories, expenseCategories, insertIncomeSchema, insertExpenseSchema, insertRecurringIncomeSchema, insertRecurringExpenseSchema } from "@shared/schema";
 
 const INCOME_COLORS = [
   "hsl(142, 76%, 36%)",
@@ -70,8 +71,19 @@ const expenseFormSchema = insertExpenseSchema.extend({
   amount: z.coerce.number().positive("Tutar pozitif olmalıdır"),
 });
 
+const recurringIncomeFormSchema = insertRecurringIncomeSchema.extend({
+  amount: z.coerce.number().positive("Tutar pozitif olmalıdır"),
+  frequency: z.coerce.number().int().positive("Gün sayısı pozitif olmalıdır").transform(String),
+});
+
+const recurringExpenseFormSchema = insertRecurringExpenseSchema.extend({
+  amount: z.coerce.number().positive("Tutar pozitif olmalıdır"),
+  frequency: z.coerce.number().int().positive("Gün sayısı pozitif olmalıdır").transform(String),
+});
+
 export default function Budget() {
   const { toast } = useToast();
+  const { formatDisplayCurrency } = useDisplayCurrency();
 
   const { data: summary, isLoading: summaryLoading } = useQuery<BudgetSummary>({
     queryKey: ["/api/budget/summary"],
@@ -83,6 +95,116 @@ export default function Budget() {
 
   const { data: expenses, isLoading: expensesLoading } = useQuery<Expense[]>({
     queryKey: ["/api/expenses"],
+  });
+
+  const { data: recurringIncomeList } = useQuery<RecurringIncome[]>({
+    queryKey: ["/api/recurring-incomes"],
+  });
+
+  const { data: recurringExpenseList } = useQuery<RecurringExpense[]>({
+    queryKey: ["/api/recurring-expenses"],
+  });
+
+  const applyRecurringMutation = useMutation({
+    mutationFn: async () => {
+      const response = await apiRequest("POST", "/api/budget/apply-recurring");
+      return response.json() as Promise<{ incomeCount: number; expenseCount: number }>;
+    },
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["/api/incomes"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/expenses"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/budget/summary"] });
+      const total = data.incomeCount + data.expenseCount;
+      toast({
+        title: "Cüzdan güncellendi",
+        description: total > 0
+          ? `${data.incomeCount} gelir, ${data.expenseCount} gider eklendi`
+          : "Eklenecek yeni kayıt bulunamadı",
+      });
+    },
+    onError: () => {
+      toast({ title: "Hata", description: "Güncelleme başarısız", variant: "destructive" });
+    },
+  });
+
+  const createRecurringIncomeMutation = useMutation({
+    mutationFn: async (data: z.infer<typeof recurringIncomeFormSchema>) => {
+      const response = await apiRequest("POST", "/api/recurring-incomes", {
+        ...data,
+        amount: data.amount.toString(),
+      });
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/recurring-incomes"] });
+      recurringIncomeForm.reset();
+      toast({ title: "Başarılı", description: "Tekrarlayan gelir eklendi" });
+    },
+    onError: () => {
+      toast({ title: "Hata", description: "Eklenemedi", variant: "destructive" });
+    },
+  });
+
+  const deleteRecurringIncomeMutation = useMutation({
+    mutationFn: async (id: string) => {
+      await apiRequest("DELETE", `/api/recurring-incomes/${id}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/recurring-incomes"] });
+      toast({ title: "Başarılı", description: "Tekrarlayan gelir silindi" });
+    },
+  });
+
+  const createRecurringExpenseMutation = useMutation({
+    mutationFn: async (data: z.infer<typeof recurringExpenseFormSchema>) => {
+      const response = await apiRequest("POST", "/api/recurring-expenses", {
+        ...data,
+        amount: data.amount.toString(),
+      });
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/recurring-expenses"] });
+      recurringExpenseForm.reset();
+      toast({ title: "Başarılı", description: "Tekrarlayan gider eklendi" });
+    },
+    onError: () => {
+      toast({ title: "Hata", description: "Eklenemedi", variant: "destructive" });
+    },
+  });
+
+  const deleteRecurringExpenseMutation = useMutation({
+    mutationFn: async (id: string) => {
+      await apiRequest("DELETE", `/api/recurring-expenses/${id}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/recurring-expenses"] });
+      toast({ title: "Başarılı", description: "Tekrarlayan gider silindi" });
+    },
+  });
+
+  const recurringIncomeForm = useForm({
+    resolver: zodResolver(recurringIncomeFormSchema),
+    defaultValues: {
+      category: "maaş",
+      description: "",
+      amount: 0,
+      currency: "TRY",
+      frequency: 30,
+      startDate: new Date(),
+    },
+  });
+
+  const recurringExpenseForm = useForm({
+    resolver: zodResolver(recurringExpenseFormSchema),
+    defaultValues: {
+      category: "market",
+      description: "",
+      amount: 0,
+      currency: "TRY",
+      frequency: 30,
+      startDate: new Date(),
+    },
   });
 
   const incomeForm = useForm({
@@ -175,9 +297,7 @@ export default function Budget() {
     },
   });
 
-  const formatCurrency = (amount: number) => {
-    return amount.toLocaleString("tr-TR", { style: "currency", currency: "TRY" });
-  };
+  const formatCurrency = (amount: number) => formatDisplayCurrency(amount);
 
   const formatDate = (date: Date | string) => {
     return new Date(date).toLocaleDateString("tr-TR");
@@ -300,13 +420,23 @@ export default function Budget() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-semibold text-foreground" data-testid="heading-budget">
-          Bütçe Takibi
-        </h1>
-        <p className="text-sm text-muted-foreground mt-1">
-          Gelir ve giderlerinizi yönetin
-        </p>
+      <div className="flex items-start justify-between">
+        <div>
+          <h1 className="text-3xl font-semibold text-foreground" data-testid="heading-budget">
+            Bütçe Takibi
+          </h1>
+          <p className="text-sm text-muted-foreground mt-1">
+            Gelir ve giderlerinizi yönetin
+          </p>
+        </div>
+        <Button
+          onClick={() => applyRecurringMutation.mutate()}
+          disabled={applyRecurringMutation.isPending}
+          className="flex items-center gap-2"
+        >
+          <RefreshCw className={`h-4 w-4 ${applyRecurringMutation.isPending ? "animate-spin" : ""}`} />
+          Cüzdanı Güncelle
+        </Button>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
@@ -397,6 +527,132 @@ export default function Budget() {
         </TabsList>
 
         <TabsContent value="income" className="space-y-4">
+          {/* Tekrarlayan gelirler */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Repeat className="h-4 w-4" />
+                Tekrarlayan Gelir Ekle
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <Form {...recurringIncomeForm}>
+                <form onSubmit={recurringIncomeForm.handleSubmit((data) => createRecurringIncomeMutation.mutate(data))} className="grid gap-4 md:grid-cols-6">
+                  <FormField
+                    control={recurringIncomeForm.control}
+                    name="category"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Kategori</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl>
+                          <SelectContent>
+                            {incomeCategories.map((cat) => (
+                              <SelectItem key={cat} value={cat}>{incomeCategoryLabels[cat]}</SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={recurringIncomeForm.control}
+                    name="description"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Açıklama</FormLabel>
+                        <FormControl><Input placeholder="Açıklama" {...field} /></FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={recurringIncomeForm.control}
+                    name="amount"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Tutar (₺)</FormLabel>
+                        <FormControl><Input type="number" step="0.01" {...field} /></FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={recurringIncomeForm.control}
+                    name="frequency"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Her kaç günde bir</FormLabel>
+                        <FormControl>
+                          <Input type="number" min={1} placeholder="30" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={recurringIncomeForm.control}
+                    name="startDate"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Başlangıç Tarihi</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="date"
+                            value={formatDateForInput(field.value)}
+                            onChange={(e) => field.onChange(new Date(e.target.value))}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <div className="flex items-end">
+                    <Button type="submit" disabled={createRecurringIncomeMutation.isPending}>
+                      <Plus className="h-4 w-4 mr-2" />Ekle
+                    </Button>
+                  </div>
+                </form>
+              </Form>
+
+              {recurringIncomeList && recurringIncomeList.length > 0 && (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Açıklama</TableHead>
+                      <TableHead>Kategori</TableHead>
+                      <TableHead>Tutar</TableHead>
+                      <TableHead>Sıklık</TableHead>
+                      <TableHead>Başlangıç</TableHead>
+                      <TableHead>Son Uygulama</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {recurringIncomeList.map((item) => (
+                      <TableRow key={item.id}>
+                        <TableCell>{item.description}</TableCell>
+                        <TableCell>{incomeCategoryLabels[item.category] || item.category}</TableCell>
+                        <TableCell className="text-success font-medium">{formatCurrency(Number(item.amount))}</TableCell>
+                        <TableCell>Her {item.frequency} günde bir</TableCell>
+                        <TableCell>{formatDate(item.startDate)}</TableCell>
+                        <TableCell className="text-muted-foreground text-xs">
+                          {item.lastApplied ? formatDate(item.lastApplied) : "—"}
+                        </TableCell>
+                        <TableCell>
+                          <Button variant="ghost" size="icon" onClick={() => deleteRecurringIncomeMutation.mutate(item.id)}>
+                            <Trash2 className="h-4 w-4 text-destructive" />
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
+            </CardContent>
+          </Card>
+
           <Card>
             <CardHeader>
               <CardTitle>Gelir Ekle</CardTitle>
@@ -537,6 +793,132 @@ export default function Budget() {
         </TabsContent>
 
         <TabsContent value="expense" className="space-y-4">
+          {/* Tekrarlayan giderler */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Repeat className="h-4 w-4" />
+                Tekrarlayan Gider Ekle
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <Form {...recurringExpenseForm}>
+                <form onSubmit={recurringExpenseForm.handleSubmit((data) => createRecurringExpenseMutation.mutate(data))} className="grid gap-4 md:grid-cols-6">
+                  <FormField
+                    control={recurringExpenseForm.control}
+                    name="category"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Kategori</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl>
+                          <SelectContent>
+                            {expenseCategories.map((cat) => (
+                              <SelectItem key={cat} value={cat}>{expenseCategoryLabels[cat]}</SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={recurringExpenseForm.control}
+                    name="description"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Açıklama</FormLabel>
+                        <FormControl><Input placeholder="Açıklama" {...field} /></FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={recurringExpenseForm.control}
+                    name="amount"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Tutar (₺)</FormLabel>
+                        <FormControl><Input type="number" step="0.01" {...field} /></FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={recurringExpenseForm.control}
+                    name="frequency"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Her kaç günde bir</FormLabel>
+                        <FormControl>
+                          <Input type="number" min={1} placeholder="30" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={recurringExpenseForm.control}
+                    name="startDate"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Başlangıç Tarihi</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="date"
+                            value={formatDateForInput(field.value)}
+                            onChange={(e) => field.onChange(new Date(e.target.value))}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <div className="flex items-end">
+                    <Button type="submit" disabled={createRecurringExpenseMutation.isPending}>
+                      <Plus className="h-4 w-4 mr-2" />Ekle
+                    </Button>
+                  </div>
+                </form>
+              </Form>
+
+              {recurringExpenseList && recurringExpenseList.length > 0 && (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Açıklama</TableHead>
+                      <TableHead>Kategori</TableHead>
+                      <TableHead>Tutar</TableHead>
+                      <TableHead>Sıklık</TableHead>
+                      <TableHead>Başlangıç</TableHead>
+                      <TableHead>Son Uygulama</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {recurringExpenseList.map((item) => (
+                      <TableRow key={item.id}>
+                        <TableCell>{item.description}</TableCell>
+                        <TableCell>{expenseCategoryLabels[item.category] || item.category}</TableCell>
+                        <TableCell className="text-destructive font-medium">{formatCurrency(Number(item.amount))}</TableCell>
+                        <TableCell>Her {item.frequency} günde bir</TableCell>
+                        <TableCell>{formatDate(item.startDate)}</TableCell>
+                        <TableCell className="text-muted-foreground text-xs">
+                          {item.lastApplied ? formatDate(item.lastApplied) : "—"}
+                        </TableCell>
+                        <TableCell>
+                          <Button variant="ghost" size="icon" onClick={() => deleteRecurringExpenseMutation.mutate(item.id)}>
+                            <Trash2 className="h-4 w-4 text-destructive" />
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
+            </CardContent>
+          </Card>
+
           <Card>
             <CardHeader>
               <CardTitle>Gider Ekle</CardTitle>

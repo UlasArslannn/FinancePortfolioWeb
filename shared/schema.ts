@@ -164,6 +164,49 @@ export const insertExpenseSchema = createInsertSchema(expenses, {
 export type InsertExpense = z.infer<typeof insertExpenseSchema>;
 export type Expense = typeof expenses.$inferSelect;
 
+// Tekrarlayan gelirler tablosu
+export const recurringIncomes = pgTable("recurring_incomes", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  category: text("category").notNull(),
+  description: text("description").notNull(),
+  amount: decimal("amount", { precision: 18, scale: 2 }).notNull(),
+  currency: text("currency").notNull().default("TRY"),
+  frequency: text("frequency").notNull(), // haftalık, aylık, yıllık
+  startDate: timestamp("start_date").notNull(),
+  lastApplied: timestamp("last_applied"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const insertRecurringIncomeSchema = createInsertSchema(recurringIncomes, {
+  startDate: z.coerce.date(),
+}).omit({ id: true, createdAt: true, lastApplied: true });
+
+export type InsertRecurringIncome = z.infer<typeof insertRecurringIncomeSchema>;
+export type RecurringIncome = typeof recurringIncomes.$inferSelect;
+
+// Tekrarlayan giderler tablosu
+export const recurringExpenses = pgTable("recurring_expenses", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  category: text("category").notNull(),
+  description: text("description").notNull(),
+  amount: decimal("amount", { precision: 18, scale: 2 }).notNull(),
+  currency: text("currency").notNull().default("TRY"),
+  frequency: text("frequency").notNull(),
+  startDate: timestamp("start_date").notNull(),
+  lastApplied: timestamp("last_applied"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const insertRecurringExpenseSchema = createInsertSchema(recurringExpenses, {
+  startDate: z.coerce.date(),
+}).omit({ id: true, createdAt: true, lastApplied: true });
+
+export type InsertRecurringExpense = z.infer<typeof insertRecurringExpenseSchema>;
+export type RecurringExpense = typeof recurringExpenses.$inferSelect;
+
+export const recurringFrequencies = ["haftalık", "aylık", "yıllık"] as const;
+export type RecurringFrequency = typeof recurringFrequencies[number];
+
 // Bütçe özeti tipi
 export type BudgetSummary = {
   totalIncome: number;

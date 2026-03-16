@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import type { AssetDetail, Asset } from "@shared/schema";
 import { useState } from "react";
 import { AddAssetDialog } from "./add-asset-dialog";
+import { useDisplayCurrency } from "@/lib/currency-context";
 
 interface AssetTableProps {
   assets: AssetDetail[];
@@ -65,6 +66,7 @@ function groupAssets(assets: AssetDetail[]): GroupedAsset[] {
 
 export function AssetTable({ assets }: AssetTableProps) {
   const { toast } = useToast();
+  const { hideAmounts } = useDisplayCurrency();
   const [editingAsset, setEditingAsset] = useState<Asset | null>(null);
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
 
@@ -95,6 +97,7 @@ export function AssetTable({ assets }: AssetTableProps) {
   });
 
   const formatCurrency = (amount: number | undefined, currency: string) => {
+    if (hideAmounts) return "****";
     const symbols: Record<string, string> = { TRY: "₺", USD: "$", EUR: "€" };
     const value = amount ?? 0;
     return `${symbols[currency] || ""}${value.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;

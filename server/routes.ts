@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertAssetSchema, insertTransactionSchema, insertIncomeSchema, insertExpenseSchema } from "@shared/schema";
+import { insertAssetSchema, insertTransactionSchema, insertIncomeSchema, insertExpenseSchema, insertRecurringIncomeSchema, insertRecurringExpenseSchema } from "@shared/schema";
 import { updateAllAssetPrices, fetchSingleAssetPrice, fetchExchangeRates, searchBESFunds, getBesCacheInfo, loadBesFundsFromFile } from "./services/priceService";
 import { exec } from "child_process";
 import { join, dirname } from "path";
@@ -381,6 +381,73 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(204).send();
     } catch (error) {
       res.status(500).json({ error: "Failed to delete expense" });
+    }
+  });
+
+  // Recurring income routes
+  app.get("/api/recurring-incomes", async (req, res) => {
+    try {
+      res.json(await storage.getRecurringIncomes());
+    } catch {
+      res.status(500).json({ error: "Failed to fetch recurring incomes" });
+    }
+  });
+
+  app.post("/api/recurring-incomes", async (req, res) => {
+    try {
+      const validated = insertRecurringIncomeSchema.parse(req.body);
+      res.status(201).json(await storage.createRecurringIncome(validated));
+    } catch {
+      res.status(400).json({ error: "Invalid recurring income data" });
+    }
+  });
+
+  app.delete("/api/recurring-incomes/:id", async (req, res) => {
+    try {
+      const deleted = await storage.deleteRecurringIncome(req.params.id);
+      if (!deleted) return res.status(404).json({ error: "Not found" });
+      res.status(204).send();
+    } catch {
+      res.status(500).json({ error: "Failed to delete recurring income" });
+    }
+  });
+
+  // Recurring expense routes
+  app.get("/api/recurring-expenses", async (req, res) => {
+    try {
+      res.json(await storage.getRecurringExpenses());
+    } catch {
+      res.status(500).json({ error: "Failed to fetch recurring expenses" });
+    }
+  });
+
+  app.post("/api/recurring-expenses", async (req, res) => {
+    try {
+      const validated = insertRecurringExpenseSchema.parse(req.body);
+      res.status(201).json(await storage.createRecurringExpense(validated));
+    } catch {
+      res.status(400).json({ error: "Invalid recurring expense data" });
+    }
+  });
+
+  app.delete("/api/recurring-expenses/:id", async (req, res) => {
+    try {
+      const deleted = await storage.deleteRecurringExpense(req.params.id);
+      if (!deleted) return res.status(404).json({ error: "Not found" });
+      res.status(204).send();
+    } catch {
+      res.status(500).json({ error: "Failed to delete recurring expense" });
+    }
+  });
+
+  // Apply recurring: generate entries for all pending occurrences
+  app.post("/api/budget/apply-recurring", async (req, res) => {
+    try {
+      const result = await storage.applyRecurring();
+      res.json(result);
+    } catch (error) {
+      console.error("Apply recurring error:", error);
+      res.status(500).json({ error: "Failed to apply recurring items" });
     }
   });
 

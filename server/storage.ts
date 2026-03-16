@@ -1,7 +1,7 @@
-import { 
-  type Asset, 
-  type InsertAsset, 
-  type Transaction, 
+import {
+  type Asset,
+  type InsertAsset,
+  type Transaction,
   type InsertTransaction,
   type PortfolioSummary,
   type AssetAllocation,
@@ -12,10 +12,16 @@ import {
   type Expense,
   type InsertExpense,
   type BudgetSummary,
+  type RecurringIncome,
+  type InsertRecurringIncome,
+  type RecurringExpense,
+  type InsertRecurringExpense,
   assets,
   transactions,
   incomes,
-  expenses
+  expenses,
+  recurringIncomes,
+  recurringExpenses,
 } from "@shared/schema";
 import { db } from "./db";
 import { fetchExchangeRates } from "./services/priceService";
@@ -56,6 +62,19 @@ export interface IStorage {
   
   // Budget calculations
   getBudgetSummary(startDate?: Date, endDate?: Date): Promise<BudgetSummary>;
+
+  // Recurring income operations
+  getRecurringIncomes(): Promise<RecurringIncome[]>;
+  createRecurringIncome(item: InsertRecurringIncome): Promise<RecurringIncome>;
+  deleteRecurringIncome(id: string): Promise<boolean>;
+
+  // Recurring expense operations
+  getRecurringExpenses(): Promise<RecurringExpense[]>;
+  createRecurringExpense(item: InsertRecurringExpense): Promise<RecurringExpense>;
+  deleteRecurringExpense(id: string): Promise<boolean>;
+
+  // Apply recurring: generate income/expense entries for all pending occurrences
+  applyRecurring(): Promise<{ incomeCount: number; expenseCount: number }>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -169,18 +188,9 @@ export class DatabaseStorage implements IStorage {
       totalCost += quantity * averagePrice * rate;
     });
 
-    // Get budget summary (income - expenses = cash balance)
-    const budgetSummary = await this.getBudgetSummary();
-    const cashBalance = budgetSummary.balance;
-
-    // Total assets = investment assets + cash balance (if positive)
-    const totalAssets = investmentAssets + Math.max(0, cashBalance);
-
-    // Total debt = negative cash balance (if expenses > income)
-    const totalDebt = cashBalance < 0 ? Math.abs(cashBalance) : 0;
-
-    // Net worth = total assets - total debt
-    const netWorth = totalAssets - totalDebt;
+    const totalAssets = investmentAssets;
+    const totalDebt = 0;
+    const netWorth = investmentAssets;
 
     const monthlyChange = totalCost > 0 ? ((investmentAssets - totalCost) / totalCost) * 100 : 0;
     const monthlyChangeAmount = investmentAssets - totalCost;
@@ -424,6 +434,122 @@ export class DatabaseStorage implements IStorage {
         percentage: totalExpense > 0 ? (amount / totalExpense) * 100 : 0,
       })),
     };
+  }
+
+  // Recurring income operations
+  async getRecurringIncomes(): Promise<RecurringIncome[]> {
+    return await db.select().from(recurringIncomes).orderBy(desc(recurringIncomes.createdAt));
+  }
+
+  async createRecurringIncome(item: InsertRecurringIncome): Promise<RecurringIncome> {
+    const [row] = await db.insert(recurringIncomes).values(item).returning();
+    return row;
+  }
+
+  async deleteRecurringIncome(id: string): Promise<boolean> {
+    const result = await db.delete(recurringIncomes).where(eq(recurringIncomes.id, id));
+    return result.rowCount !== null && result.rowCount > 0;
+  }
+
+  // Recurring expense operations
+  async getRecurringExpenses(): Promise<RecurringExpense[]> {
+    return await db.select().from(recurringExpenses).orderBy(desc(recurringExpenses.createdAt));
+  }
+
+  async createRecurringExpense(item: InsertRecurringExpense): Promise<RecurringExpense> {
+    const [row] = await db.insert(recurringExpenses).values(item).returning();
+    return row;
+  }
+
+  async deleteRecurringExpense(id: string): Promise<boolean> {
+    const result = await db.delete(recurringExpenses).where(eq(recurringExpenses.id, id));
+    return result.rowCount !== null && result.rowCount > 0;
+  }
+
+  // Apply recurring
+  async applyRecurring(): Promise<{ incomeCount: number; expenseCount: number }> {
+    const now = new Date();
+    let incomeCount = 0;
+    let expenseCount = 0;
+
+    function computeOccurrences(startDate: Date, lastApplied: Date | null, frequency: string): Date[] {
+      const occurrences: Date[] = [];
+      const cursor = new Date(startDate);
+
+      // Advance past lastApplied
+      const baseline = lastApplied ?? new Date(startDate.getTime() - 1);
+      while (cursor <= baseline) {
+        advanceCursor(cursor, frequency);
+      }
+      while (cursor <= now) {
+        occurrences.push(new Date(cursor));
+        advanceCursor(cursor, frequency);
+      }
+      return occurrences;
+    }
+
+    function advanceCursor(date: Date, frequency: string) {
+      const days = parseInt(frequency, 10);
+      if (!isNaN(days) && days > 0) {
+        date.setDate(date.getDate() + days);
+      }
+    }
+
+    // Process recurring incomes
+    const recIncomes = await this.getRecurringIncomes();
+    for (const item of recIncomes) {
+      const occurrences = computeOccurrences(
+        new Date(item.startDate),
+        item.lastApplied ? new Date(item.lastApplied) : null,
+        item.frequency
+      );
+      for (const date of occurrences) {
+        await this.createIncome({
+          category: item.category,
+          description: item.description,
+          amount: item.amount,
+          currency: item.currency,
+          date,
+          isRecurring: 1,
+        });
+        incomeCount++;
+      }
+      if (occurrences.length > 0) {
+        await db
+          .update(recurringIncomes)
+          .set({ lastApplied: occurrences[occurrences.length - 1] })
+          .where(eq(recurringIncomes.id, item.id));
+      }
+    }
+
+    // Process recurring expenses
+    const recExpenses = await this.getRecurringExpenses();
+    for (const item of recExpenses) {
+      const occurrences = computeOccurrences(
+        new Date(item.startDate),
+        item.lastApplied ? new Date(item.lastApplied) : null,
+        item.frequency
+      );
+      for (const date of occurrences) {
+        await this.createExpense({
+          category: item.category,
+          description: item.description,
+          amount: item.amount,
+          currency: item.currency,
+          date,
+          isRecurring: 1,
+        });
+        expenseCount++;
+      }
+      if (occurrences.length > 0) {
+        await db
+          .update(recurringExpenses)
+          .set({ lastApplied: occurrences[occurrences.length - 1] })
+          .where(eq(recurringExpenses.id, item.id));
+      }
+    }
+
+    return { incomeCount, expenseCount };
   }
 }
 
