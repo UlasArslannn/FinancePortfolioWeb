@@ -1,3 +1,0 @@
-python server/bes_scraper.py
-# veya tarayıcıyı görmek için:
-python server/bes_scraper.py --visible
