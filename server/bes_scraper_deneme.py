@@ -39,18 +39,9 @@ def get_driver(headless=True):
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
     )
-    # Bot tespitini engelle
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option("useAutomationExtension", False)
 
     service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service, options=options)
-    # navigator.webdriver flag'ini kaldır
-    driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
-        "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
-    })
-    return driver
+    return webdriver.Chrome(service=service, options=options)
 
 
 def select_all_options(driver, select_id):
@@ -79,17 +70,12 @@ def scrape_all(output_file=DEFAULT_OUTPUT, headless=True):
     wait = WebDriverWait(driver, 30)
 
     try:
-        # Önce ana sayfayı ziyaret et (gerçek browser gibi)
-        print("Ana sayfa ziyaret ediliyor...")
-        driver.get("https://www.besfongetirileri.com")
-        time.sleep(2)
-
         print(f"Sayfa yükleniyor: {FUND_LIST_URL}")
         driver.get(FUND_LIST_URL)
 
         # Sayfanın yüklenmesini bekle
         wait.until(EC.presence_of_element_located((By.ID, "btn_Karsilastir")))
-        time.sleep(3)  # multiple-select plugin'inin initialize olması için
+        time.sleep(1.5)  # multiple-select plugin'inin initialize olması için
 
         print("Filtreler ayarlanıyor (tüm fon türleri, riskler, dönemler)...")
 
@@ -102,7 +88,7 @@ def scrape_all(output_file=DEFAULT_OUTPUT, headless=True):
         # Tüm dönemleri seç
         select_all_options(driver, "drpPeriod")
 
-        # Değerlendirme tipi: Dönemsel (D)
+        # Değerlendirme tipi: Dönemsel (D) — zaten default, ama garantiye alalım
         driver.execute_script("""
             var sel = document.getElementById('drpEvalutionType');
             if (sel) sel.value = 'D';
@@ -112,65 +98,24 @@ def scrape_all(output_file=DEFAULT_OUTPUT, headless=True):
         btn = driver.find_element(By.ID, "btn_Karsilastir")
         driver.execute_script("arguments[0].click();", btn)
 
-        # Tablo yüklenmesini bekle — "no data" satırı değil, gerçek veri satırı
+        # Tablonun yüklenmesini bekle (tbody'de en az 1 tr görünmeli)
         print("Tablo yüklenmesi bekleniyor...")
-        time.sleep(5)
+        wait.until(EC.presence_of_element_located(
+            (By.CSS_SELECTOR, "#table1 tbody tr td")
+        ))
+        # Yükleme animasyonu bitene kadar bekle
+        time.sleep(2)
 
-        # Selenium içinde senkron XHR ile direkt API'yi çağır (aynı session)
-        print("Senkron XHR ile veri çekiliyor...")
-        raw = driver.execute_script("""
-            var form = document.getElementById('FonBulmaForm') ||
-                       document.querySelector('form');
-            var body = form ? new URLSearchParams(new FormData(form)).toString() : '';
+        # DataTables JS API ile TÜM satırları al (tüm sayfalar, pagination'a gerek yok)
+        print("Tüm veri DataTables API'si ile alınıyor...")
+        rows = driver.execute_script(
+            "return $('#table1').DataTable().data().toArray();"
+        )
 
-            // Manuel olarak seçili değerleri ekle
-            var params = new URLSearchParams();
-            function addSelect(id, name) {
-                var s = document.getElementById(id);
-                if (!s) return;
-                for (var i=0;i<s.options.length;i++){
-                    if(s.options[i].selected) params.append(name, s.options[i].value);
-                }
-            }
-            addSelect('drpFundType','fundType[]');
-            var fs = document.getElementById('txtFundSize');
-            params.append('fundSize', fs ? fs.value : '');
-            addSelect('drpRisk','fundRisk[]');
-            var ev = document.getElementById('drpEvalutionType');
-            params.append('fundEvalutionType', ev ? ev.value : 'D');
-            addSelect('drpPeriod','fundPeriod[]');
-            var sd = document.getElementById('startDate');
-            var ed = document.getElementById('endDate');
-            params.append('fundStartDate', sd ? sd.value : '');
-            params.append('fundEndDate', ed ? ed.value : '');
-            addSelect('drpAssetAllocationType','fundAssetAllocationType[]');
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/FonBulma/getFindFundData/1', false); // senkron
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-            xhr.send(params.toString());
-            return xhr.responseText;
-        """)
-
-        print(f"  Yanıt uzunluğu: {len(raw)} karakter")
-        print(f"  Yanıt (ilk 200): {raw[:200]}")
+        print(f"Toplam {len(rows)} satır alındı.")
 
     finally:
         driver.quit()
-
-    rows = []
-    try:
-        import json as _json
-        data = _json.loads(raw)
-        if isinstance(data, list):
-            rows = data
-        elif isinstance(data, dict):
-            rows = data.get('data', data.get('aaData', []))
-    except Exception as e:
-        print(f"  JSON parse hatası: {e}")
-
-    print(f"Toplam {len(rows)} satır alındı.")
 
     if not rows:
         print("Hiç veri alınamadı!")
