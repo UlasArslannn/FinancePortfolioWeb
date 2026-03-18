@@ -16,16 +16,18 @@ import {
   type InsertRecurringIncome,
   type RecurringExpense,
   type InsertRecurringExpense,
+  type PriceHistory,
   assets,
   transactions,
   incomes,
   expenses,
   recurringIncomes,
   recurringExpenses,
+  priceHistory,
 } from "@shared/schema";
 import { db } from "./db";
 import { fetchExchangeRates } from "./services/priceService";
-import { eq, desc, gte, lte, and } from "drizzle-orm";
+import { eq, desc, gte, lte, and, sql } from "drizzle-orm";
 
 export interface IStorage {
   // Asset operations
@@ -75,6 +77,10 @@ export interface IStorage {
 
   // Apply recurring: generate income/expense entries for all pending occurrences
   applyRecurring(): Promise<{ incomeCount: number; expenseCount: number }>;
+
+  // Price history operations (Fix #9)
+  recordPriceSnapshot(assetId: string, price: number, currency: string): Promise<void>;
+  getPriceHistory(assetId: string, startDate?: Date, endDate?: Date): Promise<PriceHistory[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -550,6 +556,55 @@ export class DatabaseStorage implements IStorage {
     }
 
     return { incomeCount, expenseCount };
+  }
+
+  // ---------------------------------------------------------------------------
+  // Price History (Fix #9)
+  // ---------------------------------------------------------------------------
+  async recordPriceSnapshot(assetId: string, price: number, currency: string): Promise<void> {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    // Upsert: only one snapshot per asset per day
+    // Check if we already have a snapshot for today
+    const existing = await db
+      .select()
+      .from(priceHistory)
+      .where(
+        and(
+          eq(priceHistory.assetId, assetId),
+          gte(priceHistory.snapshotDate, today),
+          lte(priceHistory.snapshotDate, new Date(today.getTime() + 24 * 60 * 60 * 1000))
+        )
+      );
+
+    if (existing.length > 0) {
+      // Update existing snapshot
+      await db
+        .update(priceHistory)
+        .set({ price: price.toFixed(2) })
+        .where(eq(priceHistory.id, existing[0].id));
+    } else {
+      // Insert new snapshot
+      await db.insert(priceHistory).values({
+        assetId,
+        price: price.toFixed(2),
+        currency,
+        snapshotDate: today,
+      });
+    }
+  }
+
+  async getPriceHistory(assetId: string, startDate?: Date, endDate?: Date): Promise<PriceHistory[]> {
+    const conditions = [eq(priceHistory.assetId, assetId)];
+    if (startDate) conditions.push(gte(priceHistory.snapshotDate, startDate));
+    if (endDate) conditions.push(lte(priceHistory.snapshotDate, endDate));
+
+    return await db
+      .select()
+      .from(priceHistory)
+      .where(and(...conditions))
+      .orderBy(desc(priceHistory.snapshotDate));
   }
 }
 

@@ -2,13 +2,54 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertAssetSchema, insertTransactionSchema, insertIncomeSchema, insertExpenseSchema, insertRecurringIncomeSchema, insertRecurringExpenseSchema } from "@shared/schema";
-import { updateAllAssetPrices, fetchSingleAssetPrice, fetchExchangeRates, searchBESFunds, getBesCacheInfo, loadBesFundsFromFile } from "./services/priceService";
-import { exec } from "child_process";
+import { updateAllAssetPrices, fetchSingleAssetPrice, fetchExchangeRates, searchBESFunds, getBesCacheInfo, loadBesFundsFromFile, searchStocks } from "./services/priceService";
+import { execFile } from "child_process";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 const __routesDirname = dirname(fileURLToPath(import.meta.url));
 
+// ---------------------------------------------------------------------------
+// Fix #6: Simple In-Memory Rate Limiter
+// ---------------------------------------------------------------------------
+interface RateLimitEntry {
+  count: number;
+  resetAt: number;
+}
+
+class RateLimiter {
+  private store = new Map<string, RateLimitEntry>();
+  constructor(
+    private maxRequests: number,
+    private windowMs: number
+  ) {}
+
+  isAllowed(key: string): boolean {
+    const now = Date.now();
+    const entry = this.store.get(key);
+    if (!entry || now > entry.resetAt) {
+      this.store.set(key, { count: 1, resetAt: now + this.windowMs });
+      return true;
+    }
+    if (entry.count >= this.maxRequests) return false;
+    entry.count++;
+    return true;
+  }
+}
+
+// Price update: max 3 requests per minute
+const priceUpdateLimiter = new RateLimiter(3, 60 * 1000);
+// General API: max 60 requests per minute per IP
+const generalLimiter = new RateLimiter(60, 60 * 1000);
+
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Apply general rate limiting to all API routes
+  app.use("/api", (req, res, next) => {
+    const clientIp = req.ip || req.socket.remoteAddress || "unknown";
+    if (!generalLimiter.isAllowed(clientIp)) {
+      return res.status(429).json({ error: "Too many requests. Please try again later." });
+    }
+    next();
+  });
   // Asset routes
   app.get("/api/assets", async (req, res) => {
     try {
@@ -156,8 +197,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Price update routes
+  // Price update routes (with rate limiting - Fix #6)
   app.post("/api/prices/update", async (req, res) => {
+    const clientIp = req.ip || req.socket.remoteAddress || "unknown";
+    if (!priceUpdateLimiter.isAllowed(clientIp)) {
+      return res.status(429).json({
+        error: "Fiyat güncelleme çok sık yapılıyor. Lütfen 1 dakika bekleyin.",
+      });
+    }
     try {
       const results = await updateAllAssetPrices();
       const successful = results.filter(r => r.success).length;
@@ -224,84 +271,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
     });
   });
 
-  // Trigger Python scraper to rebuild the cache (runs in background)
+  // Trigger Python scraper to rebuild the cache (Fix #12: execFile instead of exec)
   app.post("/api/bes/rescrape", (req, res) => {
     const scraperPath = join(__routesDirname, "tefas_scraper.py");
-    exec(`python "${scraperPath}"`, { timeout: 5 * 60 * 1000 }, (err, stdout, stderr) => {
+    execFile("python", [scraperPath], { timeout: 5 * 60 * 1000 }, (err, stdout, stderr) => {
       if (err) {
         console.error("[bes/rescrape] scraper error:", stderr);
         return;
       }
       console.log("[bes/rescrape] scraper done:", stdout.trim().split("\n").slice(-2).join(" | "));
-      // Reload the cache into memory
       loadBesFundsFromFile();
     });
     res.json({ message: "Scraper started. Check /api/bes/cache-status for progress." });
   });
 
-  // Stock/crypto search endpoint
+  // Stock/crypto search endpoint — Yahoo with auth for all markets
   app.get("/api/stocks/search", async (req, res) => {
     try {
       const { q, market, type } = req.query;
+      if (!q || String(q).length < 1) return res.json([]);
 
-      if (!q || String(q).length < 1) {
-        return res.json([]);
-      }
-
-      const query = String(q);
-      const marketStr = String(market || "");
-      const typeStr = String(type || "");
-
-      let results: { symbol: string; name: string; exchange: string }[] = [];
-
-      if (typeStr === "kripto") {
-        // CoinGecko search for crypto
-        const response = await fetch(
-          `https://api.coingecko.com/api/v3/search?query=${encodeURIComponent(query)}`,
-          { headers: { "User-Agent": "Mozilla/5.0" } }
-        );
-        if (response.ok) {
-          const data = await response.json();
-          results = (data.coins || []).slice(0, 10).map((coin: any) => ({
-            symbol: coin.symbol?.toUpperCase(),
-            name: coin.name,
-            exchange: "Crypto",
-          }));
-        }
-      } else {
-        // Yahoo Finance search for stocks/ETFs
-        // For BIST, append .IS so Yahoo Finance returns Turkish stocks correctly
-        const yahooQuery = marketStr === "BIST" ? `${query}.IS` : query;
-        const yahooUrl = `https://query2.finance.yahoo.com/v1/finance/search?q=${encodeURIComponent(yahooQuery)}&quotesCount=20&newsCount=0&listsCount=0`;
-        console.log(`[stocks/search] market=${marketStr} query="${query}" yahooQuery="${yahooQuery}" url=${yahooUrl}`);
-        const response = await fetch(yahooUrl,
-          { headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" } }
-        );
-        console.log(`[stocks/search] Yahoo response status: ${response.status}`);
-        if (response.ok) {
-          const data = await response.json();
-          const quotes: any[] = data.quotes || [];
-          console.log(`[stocks/search] Total quotes from Yahoo: ${quotes.length}`, quotes.slice(0,3).map((q:any) => ({symbol: q.symbol, exchange: q.exchange})));
-          const US_EXCHANGES = ["NYQ", "NMS", "NGM", "NCM", "ASE", "PCX", "BTS"];
-
-          results = quotes
-            .filter((q: any) => {
-              if (marketStr === "BIST") return q.symbol?.endsWith(".IS");
-              if (marketStr === "US") return US_EXCHANGES.includes(q.exchange);
-              return true;
-            })
-            .slice(0, 10)
-            .map((q: any) => ({
-              symbol: marketStr === "BIST" ? q.symbol?.replace(".IS", "") : q.symbol,
-              name: q.shortname || q.longname || q.symbol,
-              exchange: q.exchDisp || q.exchange || "",
-            }));
-          console.log(`[stocks/search] After filter: ${results.length} results`);
-        } else {
-          console.log(`[stocks/search] Yahoo error body:`, await response.text().catch(() => ""));
-        }
-      }
-
+      const results = await searchStocks(
+        String(q),
+        String(market || ""),
+        String(type || "")
+      );
       res.json(results);
     } catch (error) {
       console.error("Stock search error:", error);
@@ -317,6 +311,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Exchange rates error:", error);
       res.status(500).json({ error: "Failed to fetch exchange rates" });
+    }
+  });
+
+  // Price history endpoint (Fix #9)
+  app.get("/api/assets/:assetId/price-history", async (req, res) => {
+    try {
+      const { startDate, endDate } = req.query;
+      const history = await storage.getPriceHistory(
+        req.params.assetId,
+        startDate ? new Date(startDate as string) : undefined,
+        endDate ? new Date(endDate as string) : undefined
+      );
+      res.json(history);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch price history" });
     }
   });
 

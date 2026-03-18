@@ -1,5 +1,5 @@
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, decimal, timestamp, integer } from "drizzle-orm/pg-core";
+import { sql, relations } from "drizzle-orm";
+import { pgTable, text, varchar, decimal, timestamp, integer, index } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -40,7 +40,7 @@ export type Asset = typeof assets.$inferSelect;
 // İşlemler tablosu (Alım/Satım geçmişi)
 export const transactions = pgTable("transactions", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  assetId: varchar("asset_id").notNull(),
+  assetId: varchar("asset_id").notNull().references(() => assets.id, { onDelete: "cascade" }),
   type: text("type").notNull(), // alış, satış
   quantity: decimal("quantity", { precision: 18, scale: 8 }).notNull(), // Miktar
   price: decimal("price", { precision: 18, scale: 2 }).notNull(), // İşlem fiyatı
@@ -49,7 +49,10 @@ export const transactions = pgTable("transactions", {
   notes: text("notes"), // Notlar
   date: timestamp("date").notNull(), // İşlem tarihi
   createdAt: timestamp("created_at").defaultNow(),
-});
+}, (table) => [
+  index("idx_transactions_asset_id").on(table.assetId),
+  index("idx_transactions_date").on(table.date),
+]);
 
 export const insertTransactionSchema = createInsertSchema(transactions, {
   date: z.coerce.date(), // Accept string or Date, convert to Date
@@ -215,3 +218,47 @@ export type BudgetSummary = {
   incomeByCategory: { category: string; amount: number; percentage: number }[];
   expenseByCategory: { category: string; amount: number; percentage: number }[];
 };
+
+// ---------------------------------------------------------------------------
+// Drizzle Relations
+// ---------------------------------------------------------------------------
+export const assetsRelations = relations(assets, ({ many }) => ({
+  transactions: many(transactions),
+  priceHistory: many(priceHistory),
+}));
+
+export const transactionsRelations = relations(transactions, ({ one }) => ({
+  asset: one(assets, {
+    fields: [transactions.assetId],
+    references: [assets.id],
+  }),
+}));
+
+// ---------------------------------------------------------------------------
+// Price History Table (Fix #9 — historical price snapshots)
+// ---------------------------------------------------------------------------
+export const priceHistory = pgTable("price_history", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  assetId: varchar("asset_id").notNull().references(() => assets.id, { onDelete: "cascade" }),
+  price: decimal("price", { precision: 18, scale: 2 }).notNull(),
+  currency: text("currency").notNull().default("TRY"),
+  snapshotDate: timestamp("snapshot_date").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+}, (table) => [
+  index("idx_price_history_asset_date").on(table.assetId, table.snapshotDate),
+]);
+
+export const priceHistoryRelations = relations(priceHistory, ({ one }) => ({
+  asset: one(assets, {
+    fields: [priceHistory.assetId],
+    references: [assets.id],
+  }),
+}));
+
+export const insertPriceHistorySchema = createInsertSchema(priceHistory).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertPriceHistory = z.infer<typeof insertPriceHistorySchema>;
+export type PriceHistory = typeof priceHistory.$inferSelect;

@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CurrencyProvider } from "@/lib/currency-context";
+import { ErrorBoundary } from "@/components/error-boundary";
 import { useEffect } from "react";
 import Dashboard from "@/pages/dashboard";
 import Transactions from "@/pages/transactions";
@@ -17,11 +18,31 @@ import NotFound from "@/pages/not-found";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Dashboard} />
-      <Route path="/islemler" component={Transactions} />
-      <Route path="/butce" component={Budget} />
-      <Route path="/raporlar" component={Reports} />
-      <Route path="/ayarlar" component={Settings} />
+      <Route path="/">
+        <ErrorBoundary>
+          <Dashboard />
+        </ErrorBoundary>
+      </Route>
+      <Route path="/islemler">
+        <ErrorBoundary>
+          <Transactions />
+        </ErrorBoundary>
+      </Route>
+      <Route path="/butce">
+        <ErrorBoundary>
+          <Budget />
+        </ErrorBoundary>
+      </Route>
+      <Route path="/raporlar">
+        <ErrorBoundary>
+          <Reports />
+        </ErrorBoundary>
+      </Route>
+      <Route path="/ayarlar">
+        <ErrorBoundary>
+          <Settings />
+        </ErrorBoundary>
+      </Route>
       <Route component={NotFound} />
     </Switch>
   );
@@ -41,26 +62,28 @@ function App() {
   };
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <CurrencyProvider>
-        <TooltipProvider>
-          <SidebarProvider style={style as React.CSSProperties}>
-            <div className="flex h-screen w-full">
-              <AppSidebar />
-              <div className="flex flex-col flex-1 overflow-hidden">
-                <header className="flex items-center justify-between p-4 border-b bg-background">
-                  <SidebarTrigger data-testid="button-sidebar-toggle" />
-                </header>
-                <main className="flex-1 overflow-auto p-6 bg-background">
-                  <Router />
-                </main>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <CurrencyProvider>
+          <TooltipProvider>
+            <SidebarProvider style={style as React.CSSProperties}>
+              <div className="flex h-screen w-full">
+                <AppSidebar />
+                <div className="flex flex-col flex-1 overflow-hidden">
+                  <header className="flex items-center justify-between p-4 border-b bg-background">
+                    <SidebarTrigger data-testid="button-sidebar-toggle" />
+                  </header>
+                  <main className="flex-1 overflow-auto p-6 bg-background">
+                    <Router />
+                  </main>
+                </div>
               </div>
-            </div>
-          </SidebarProvider>
-          <Toaster />
-        </TooltipProvider>
-      </CurrencyProvider>
-    </QueryClientProvider>
+            </SidebarProvider>
+            <Toaster />
+          </TooltipProvider>
+        </CurrencyProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 

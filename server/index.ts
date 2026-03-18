@@ -2,7 +2,7 @@ import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-import { loadBesFundsFromFile } from "./services/priceService";
+import { loadBesFundsFromFile, loadBistStocksFromFile } from "./services/priceService";
 
 const app = express();
 
@@ -51,6 +51,8 @@ app.use((req, res, next) => {
 (async () => {
   // Load BES fund cache from local JSON (built by tefas_scraper.py)
   loadBesFundsFromFile();
+  // Load BIST stock list for local search
+  loadBistStocksFromFile();
 
   const server = await registerRoutes(app);
 
