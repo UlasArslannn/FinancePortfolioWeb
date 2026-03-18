@@ -174,7 +174,7 @@ export function getBistCachedPrice(symbol: string): number | null {
   return s?.price && s.price > 0 ? s.price : null;
 }
 
-function searchBISTLocal(query: string, assetType?: string): StockSearchResult[] {
+export function searchBISTLocal(query: string, assetType?: string): StockSearchResult[] {
   const q = query.toUpperCase().trim();
   if (!q) return [];
 

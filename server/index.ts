@@ -2,7 +2,7 @@ import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-import { loadBesFundsFromFile } from "./services/priceService";
+import { loadBesFundsFromFile, rebuildBesFundCache, loadBistStocksFromFile } from "./services/priceService";
 
 const app = express();
 
@@ -49,8 +49,15 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  // Load BES fund cache from local JSON (built by tefas_scraper.py)
-  loadBesFundsFromFile();
+  // Load BIST stocks from local JSON (bist_scraper.py tarafından doldurulur)
+  loadBistStocksFromFile();
+
+  // Load BES fund cache from local JSON; rebuild from TEFAS if empty
+  const besResult = loadBesFundsFromFile();
+  if (besResult.count === 0) {
+    console.log("[BES] Cache boş, TEFAS'tan yeniden inşa ediliyor...");
+    rebuildBesFundCache().catch((e) => console.error("[BES] Rebuild failed:", e));
+  }
 
   const server = await registerRoutes(app);
 

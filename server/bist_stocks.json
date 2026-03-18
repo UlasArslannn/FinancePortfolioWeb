@@ -1,0 +1,3768 @@
+{
+  "lastUpdated": "2026-03-18 23:35",
+  "source": "TradingView Screener",
+  "stocks": [
+    {
+      "symbol": "A1CAP",
+      "name": "A1 Capital Yatitim Menkul Degerler A.S.",
+      "price": 15.9,
+      "type": "stock"
+    },
+    {
+      "symbol": "A1YEN",
+      "name": "A1 Yenilenebilir Enerji Uretim AS",
+      "price": 29.74,
+      "type": "stock"
+    },
+    {
+      "symbol": "ACSEL",
+      "name": "Aciselsan Acipayam Seluloz Sanayi ve Ticaret AS",
+      "price": 102.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "ADEL",
+      "name": "Adel Kalemcilik Ticaret ve Sanayi A.S.",
+      "price": 33.04,
+      "type": "stock"
+    },
+    {
+      "symbol": "ADESE",
+      "name": "Adese Gayrimenkul Yatirim AS",
+      "price": 0.99,
+      "type": "stock"
+    },
+    {
+      "symbol": "ADGYO",
+      "name": "Adra Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 57.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "AEFES",
+      "name": "Anadolu Efes Biracilik ve Malt Sanayii A.S.",
+      "price": 17.51,
+      "type": "stock"
+    },
+    {
+      "symbol": "AFYON",
+      "name": "Afyon Cimento Sanayii T.A.S.",
+      "price": 16.62,
+      "type": "stock"
+    },
+    {
+      "symbol": "AGESA",
+      "name": "AgeSA Hayat ve Emeklilik A.S.",
+      "price": 221.4,
+      "type": "stock"
+    },
+    {
+      "symbol": "AGHOL",
+      "name": "AG Anadolu Grubu Holding Anonim Sirketi",
+      "price": 29.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "AGROT",
+      "name": "Agrotech Yuksek Teknoloji ve Yatirim AS",
+      "price": 3.02,
+      "type": "stock"
+    },
+    {
+      "symbol": "AGYO",
+      "name": "Atakule Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 8.81,
+      "type": "etf"
+    },
+    {
+      "symbol": "AHGAZ",
+      "name": "Ahlatci Dogal Gaz Dagitim Enerji ve Yatirim AS",
+      "price": 22.08,
+      "type": "stock"
+    },
+    {
+      "symbol": "AHSGY",
+      "name": "Ahes Gayrimenkul Yatirim Ortakligi AS",
+      "price": 20.64,
+      "type": "stock"
+    },
+    {
+      "symbol": "AKBNK",
+      "name": "Akbank T.A.S.",
+      "price": 75.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "AKCNS",
+      "name": "Akcansa Cimento Sanayi ve Ticaret A.S.",
+      "price": 201.4,
+      "type": "stock"
+    },
+    {
+      "symbol": "AKENR",
+      "name": "Akenerji Elektrik Uretim A.S.",
+      "price": 9.67,
+      "type": "stock"
+    },
+    {
+      "symbol": "AKFGY",
+      "name": "Akfen Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 2.89,
+      "type": "etf"
+    },
+    {
+      "symbol": "AKFIS",
+      "name": "Akfen insaat Turizm ve Ticaret AS",
+      "price": 38.88,
+      "type": "stock"
+    },
+    {
+      "symbol": "AKFYE",
+      "name": "AKFEN YENILENEBILIR ENERJI A.S.",
+      "price": 21.86,
+      "type": "stock"
+    },
+    {
+      "symbol": "AKGRT",
+      "name": "Aksigorta AS",
+      "price": 7.94,
+      "type": "stock"
+    },
+    {
+      "symbol": "AKHAN",
+      "name": "Akhan Un Fabrikasi Ve Tarim Urunleri Gida Sanayi Ticaret Anonim Sirketi",
+      "price": 25.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "AKMGY",
+      "name": "Akmerkez Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 220.0,
+      "type": "etf"
+    },
+    {
+      "symbol": "AKSA",
+      "name": "Aksa Akrilik Kimya Sanayii A.S.",
+      "price": 11.11,
+      "type": "stock"
+    },
+    {
+      "symbol": "AKSEN",
+      "name": "Aksa Enerji Uretim A.S.",
+      "price": 78.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "AKSGY",
+      "name": "Akis Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 8.76,
+      "type": "etf"
+    },
+    {
+      "symbol": "AKSUE",
+      "name": "Aksu Enerji ve Ticaret A.S.",
+      "price": 28.14,
+      "type": "stock"
+    },
+    {
+      "symbol": "AKYHO",
+      "name": "Akdeniz Yatirim Holding A.S.",
+      "price": 2.62,
+      "type": "stock"
+    },
+    {
+      "symbol": "ALARK",
+      "name": "Alarko Holding A.S.",
+      "price": 90.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "ALBRK",
+      "name": "Albaraka Turk Katilim Bankasi A.S.",
+      "price": 8.23,
+      "type": "stock"
+    },
+    {
+      "symbol": "ALCAR",
+      "name": "Alarko Carrier Sanayi ve Ticaret A.S.",
+      "price": 755.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "ALCTL",
+      "name": "Alcatel Lucent Teletas Telekomunikasyon A.S.",
+      "price": 126.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "ALFAS",
+      "name": "ALFA SOLAR ENERJI SANAYI VE TICARET A.S.",
+      "price": 37.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "ALGYO",
+      "name": "Alarko Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 4.77,
+      "type": "etf"
+    },
+    {
+      "symbol": "ALKA",
+      "name": "Alkim Kagit Sanayi ve Ticaret A.S.",
+      "price": 11.48,
+      "type": "stock"
+    },
+    {
+      "symbol": "ALKIM",
+      "name": "Alkim Alkali Kimya A.S.",
+      "price": 18.26,
+      "type": "stock"
+    },
+    {
+      "symbol": "ALKLC",
+      "name": "Altinkilic Gida ve Sut Sanayi Ticaret AS",
+      "price": 293.75,
+      "type": "stock"
+    },
+    {
+      "symbol": "ALTIN",
+      "name": "DARPHANE ALTIN SERTIFIKASI",
+      "price": 82.79,
+      "type": "stock"
+    },
+    {
+      "symbol": "ALTNY",
+      "name": "Altinay Savunma Teknolojileri A.S.",
+      "price": 15.04,
+      "type": "stock"
+    },
+    {
+      "symbol": "ALVES",
+      "name": "Alves Kablo Sanayi ve Ticaret A. S.",
+      "price": 3.01,
+      "type": "stock"
+    },
+    {
+      "symbol": "ANELE",
+      "name": "Anel Elektrik Proje Taahhut ve Ticaret A.S.",
+      "price": 14.02,
+      "type": "stock"
+    },
+    {
+      "symbol": "ANGEN",
+      "name": "Anatolia Tani ve Biyoteknoloji Urunleri Arastirma Gelistirme Sanayi ve Ticaret AS",
+      "price": 10.33,
+      "type": "stock"
+    },
+    {
+      "symbol": "ANHYT",
+      "name": "Anadolu Hayat Emeklilik A.S.",
+      "price": 118.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "ANSGR",
+      "name": "Anadolu Anonim Turk Sigorta Sirketi A.S.",
+      "price": 27.54,
+      "type": "stock"
+    },
+    {
+      "symbol": "APBDL",
+      "name": "Ak Portfoy BIST Banka Disi Likit 10 Endeksi Hisse Senedi Yogun",
+      "price": 34.1,
+      "type": "etf"
+    },
+    {
+      "symbol": "APX30",
+      "name": "AK Portfoy BIST 30 Endeksi Hisse Senedi Fonu (Hisse Senedi Yo)",
+      "price": 36.3,
+      "type": "etf"
+    },
+    {
+      "symbol": "ARASE",
+      "name": "Dogu Aras Enerji Yatirimlari AS",
+      "price": 102.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "ARCLK",
+      "name": "Arcelik A.S.",
+      "price": 113.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "ARDYZ",
+      "name": "ARD Grup Bilisim Teknolojileri AS",
+      "price": 41.54,
+      "type": "stock"
+    },
+    {
+      "symbol": "ARENA",
+      "name": "Arena Bilgisayar AS",
+      "price": 25.06,
+      "type": "stock"
+    },
+    {
+      "symbol": "ARFYE",
+      "name": "ARF Bio Yenilenebilir Enerji Uretim AS",
+      "price": 25.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "ARMGD",
+      "name": "Armada Gida Ticaret ve Sanayi Anonim Sirketi",
+      "price": 79.55,
+      "type": "stock"
+    },
+    {
+      "symbol": "ARSAN",
+      "name": "Arsan Holding A.S.",
+      "price": 4.16,
+      "type": "stock"
+    },
+    {
+      "symbol": "ARTMS",
+      "name": "Artemis Hali A. S.",
+      "price": 38.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "ARZUM",
+      "name": "Arzum Elektrikli Ev Aletleri Sanayi ve Ticaret AS",
+      "price": 2.62,
+      "type": "stock"
+    },
+    {
+      "symbol": "ASELS",
+      "name": "Aselsan Elektronik Sanayi ve Ticaret A.S. Class B",
+      "price": 348.75,
+      "type": "stock"
+    },
+    {
+      "symbol": "ASGYO",
+      "name": "ASCE GAYRIMENKUL YATIRIM ORTAKLIGI A.S.",
+      "price": 11.07,
+      "type": "etf"
+    },
+    {
+      "symbol": "ASTOR",
+      "name": "Astor Enerji A.S.",
+      "price": 185.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "ASUZU",
+      "name": "Anadolu Isuzu Otomotiv Sanayi ve Ticaret A.S. Class C",
+      "price": 66.4,
+      "type": "stock"
+    },
+    {
+      "symbol": "ATAGY",
+      "name": "Ata Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 12.8,
+      "type": "etf"
+    },
+    {
+      "symbol": "ATAKP",
+      "name": "Atakey Patates Gida Sanayi ve Ticaret AS",
+      "price": 52.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "ATATP",
+      "name": "ATP Yazilim ve Teknoloji AS",
+      "price": 145.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "ATATR",
+      "name": "Ata Turizm Isletmecilik Tasimacilik Madencilik Kuyumculu",
+      "price": 10.68,
+      "type": "stock"
+    },
+    {
+      "symbol": "ATEKS",
+      "name": "Akin Tekstil A.S.",
+      "price": 109.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "ATLAS",
+      "name": "Atlas Menkul Kiymetler Yatirim Ortakligi A.S.",
+      "price": 8.62,
+      "type": "stock"
+    },
+    {
+      "symbol": "ATSYH",
+      "name": "Atlantis Yatirim Holding A.S.",
+      "price": 51.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "AVGYO",
+      "name": "Avrasya Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 11.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "AVHOL",
+      "name": "Avrupa Yatirim Holding AS",
+      "price": 36.34,
+      "type": "stock"
+    },
+    {
+      "symbol": "AVOD",
+      "name": "A.V.O.D. KURUTULMUS GIDA VE TARIM URUNLERI SANAYI TICARET A.S.",
+      "price": 4.74,
+      "type": "stock"
+    },
+    {
+      "symbol": "AVPGY",
+      "name": "Avrupakent Gayrimenkul Yatirim Ortakligi SA",
+      "price": 52.5,
+      "type": "etf"
+    },
+    {
+      "symbol": "AVTUR",
+      "name": "Avrasya Petrol ve Turistik Tesisler Yatirimlar AS",
+      "price": 18.57,
+      "type": "etf"
+    },
+    {
+      "symbol": "AYCES",
+      "name": "Altin Yunus Cesme Turistik Tesisler A.S.",
+      "price": 681.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "AYDEM",
+      "name": "Aydem Yenilenebilir Enerji AS",
+      "price": 26.32,
+      "type": "stock"
+    },
+    {
+      "symbol": "AYEN",
+      "name": "Ayen Enerji A.S.",
+      "price": 27.68,
+      "type": "stock"
+    },
+    {
+      "symbol": "AYES",
+      "name": "Ayes Celik Hasir ve Cit Sanayi AS",
+      "price": 32.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "AYGAZ",
+      "name": "Aygaz Anonim Sirketi",
+      "price": 240.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "AZTEK",
+      "name": "Aztek Teknoloji Urunleri Ticaret A.S.",
+      "price": 4.07,
+      "type": "stock"
+    },
+    {
+      "symbol": "BAGFS",
+      "name": "Bagfas Bandirma Gubre Fabrikalari A.S.",
+      "price": 39.18,
+      "type": "stock"
+    },
+    {
+      "symbol": "BAHKM",
+      "name": "Bahadir Kimya Sanayi Ve Ticaret Anonim Sirketi",
+      "price": 138.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "BAKAB",
+      "name": "Bak Ambalaj Sanayi ve Ticaret A.S.",
+      "price": 37.76,
+      "type": "stock"
+    },
+    {
+      "symbol": "BALAT",
+      "name": "Balatacilar Balatacilik Sanayi ve Ticaret AS",
+      "price": 108.4,
+      "type": "stock"
+    },
+    {
+      "symbol": "BALSU",
+      "name": "Balsu Gida Sanayi ve Ticaret Anonim Sirketi",
+      "price": 14.18,
+      "type": "stock"
+    },
+    {
+      "symbol": "BANVT",
+      "name": "Banvit Bandirma Vitaminli Yem Sanayii A.S.",
+      "price": 154.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "BARMA",
+      "name": "Barem Ambalaj Sanayi ve Ticaret AS",
+      "price": 49.52,
+      "type": "stock"
+    },
+    {
+      "symbol": "BASCM",
+      "name": "Bastas Baskent Cimento Sanayi ve Ticaret AS",
+      "price": 14.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "BASGZ",
+      "name": "Baskent Dogalgaz Dagitim Gayrimenkul Yatirim Ortakligi AS",
+      "price": 50.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "BAYRK",
+      "name": "BAYRAK EBT TABAN SANAYI VE TICARET A.S.",
+      "price": 4.59,
+      "type": "stock"
+    },
+    {
+      "symbol": "BEGYO",
+      "name": "Bati Ege Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 4.24,
+      "type": "stock"
+    },
+    {
+      "symbol": "BERA",
+      "name": "Bera Holding AS",
+      "price": 17.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "BESLR",
+      "name": "Besler Gida Ve Kimya Sanayi Ve Ticaret AS",
+      "price": 13.82,
+      "type": "stock"
+    },
+    {
+      "symbol": "BESTE",
+      "name": "Best Brands Grup Enerji Yatirim as",
+      "price": 23.98,
+      "type": "stock"
+    },
+    {
+      "symbol": "BEYAZ",
+      "name": "Beyaz Filo Oto Kiralama AS",
+      "price": 28.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "BFREN",
+      "name": "Bosch Fren Sistemleri Sanayi ve Ticaret A.S.",
+      "price": 141.4,
+      "type": "stock"
+    },
+    {
+      "symbol": "BIENY",
+      "name": "Bien Yapi Urunleri Sanayi Turizm Ve Ticaret Anonim Sirketi",
+      "price": 23.16,
+      "type": "stock"
+    },
+    {
+      "symbol": "BIGCH",
+      "name": "Buyuk Sefler Gida Turizm Tekstil Danismanlik Organizasyon Egitim Sanayi ve Ticaret A.S.",
+      "price": 6.83,
+      "type": "stock"
+    },
+    {
+      "symbol": "BIGEN",
+      "name": "Birlesim Grup Enerji Yatirimlari AS",
+      "price": 8.71,
+      "type": "stock"
+    },
+    {
+      "symbol": "BIGTK",
+      "name": "Big Medya Teknoloji A.S.",
+      "price": 242.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "BIMAS",
+      "name": "BIM Birlesik Magazalar A.S.",
+      "price": 675.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "BINBN",
+      "name": "Bin Ulasim Ve Akilli Sehir Teknolojileri AS",
+      "price": 160.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "BINHO",
+      "name": "1000 Yatirimlar Holding AS",
+      "price": 8.41,
+      "type": "stock"
+    },
+    {
+      "symbol": "BIOEN",
+      "name": "BIotrend Cevre ve EnerjI Yatirimlari AS",
+      "price": 17.15,
+      "type": "stock"
+    },
+    {
+      "symbol": "BIZIM",
+      "name": "Bizim Toptan SatiG Magazalari A.g.",
+      "price": 27.14,
+      "type": "stock"
+    },
+    {
+      "symbol": "BJKAS",
+      "name": "Besiktas Futbol Yatirimlari Sanayi ve Ticaret A.S.",
+      "price": 1.49,
+      "type": "stock"
+    },
+    {
+      "symbol": "BLCYT",
+      "name": "Bilici Yatirim Sanayi ve Ticaret A.S.",
+      "price": 48.48,
+      "type": "stock"
+    },
+    {
+      "symbol": "BLUME",
+      "name": "Blume Metal Kimya Anonim Sirketi",
+      "price": 48.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "BMSCH",
+      "name": "BMS Celik Hasir Sanayi Ve Ticaret A.S.",
+      "price": 17.93,
+      "type": "stock"
+    },
+    {
+      "symbol": "BMSTL",
+      "name": "BMS Birlesik Metal Sanayi ve Ticaret AS Class B",
+      "price": 85.55,
+      "type": "stock"
+    },
+    {
+      "symbol": "BNTAS",
+      "name": "Bantas Bandirma Ambalaj Sanayi ve Ticaret A.S.",
+      "price": 6.28,
+      "type": "stock"
+    },
+    {
+      "symbol": "BOBET",
+      "name": "Bogazici Beton Sanayi ve Ticaret AS",
+      "price": 19.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "BORLS",
+      "name": "Borlease Otomotiv AS",
+      "price": 2.84,
+      "type": "stock"
+    },
+    {
+      "symbol": "BORSK",
+      "name": "Bor Seker A.S.",
+      "price": 6.07,
+      "type": "stock"
+    },
+    {
+      "symbol": "BOSSA",
+      "name": "Bossa Ticaret ve Sanayi Isletmeleri T.A.S.",
+      "price": 6.32,
+      "type": "stock"
+    },
+    {
+      "symbol": "BRISA",
+      "name": "Brisa Bridgestone Sabanci Lastik Sanayi ve Ticaret A.S.",
+      "price": 85.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "BRKO",
+      "name": "Birko Birlesik Koyunlulular Mensucat ve Ticaret A.S.",
+      "price": 14.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "BRKSN",
+      "name": "Berkosan Yalitim ve Tecrit Maddeleri Uretim ve Ticaret A.S.",
+      "price": 9.13,
+      "type": "stock"
+    },
+    {
+      "symbol": "BRKVY",
+      "name": "Birikim Varlik Yonetim A.S.",
+      "price": 89.15,
+      "type": "stock"
+    },
+    {
+      "symbol": "BRLSM",
+      "name": "Birlesim Muhendislik Isitma Sogutma Havalandirma Sanayi ve Ticaret A.S.",
+      "price": 16.96,
+      "type": "stock"
+    },
+    {
+      "symbol": "BRMEN",
+      "name": "Birlik Mensucat Ticaret ve Sanayi Isletmesi A.S.",
+      "price": 9.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "BRSAN",
+      "name": "BORUSAN BIRLESIK BORU FABRIKALARI SANAYI VE TICARET ANONIM SIRKETI",
+      "price": 500.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "BRYAT",
+      "name": "Borusan Yatirim ve Pazarlama AS",
+      "price": 2240.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "BSOKE",
+      "name": "Batisoke Soke Cimento Sanayii T.A.S.",
+      "price": 33.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "BTCIM",
+      "name": "Baticim Bati Anadolu Cimento Sanayii A.S.",
+      "price": 6.87,
+      "type": "stock"
+    },
+    {
+      "symbol": "BUCIM",
+      "name": "Bursa Cimento Fabrikasi A.S.",
+      "price": 6.16,
+      "type": "stock"
+    },
+    {
+      "symbol": "BULGS",
+      "name": "Bulls Girisim Sermayesi Yatirim Ortakligi Anonim Sirketi",
+      "price": 42.32,
+      "type": "stock"
+    },
+    {
+      "symbol": "BURCE",
+      "name": "Burcelik Bursa Celik Doekum Sanayii A.S.",
+      "price": 38.26,
+      "type": "stock"
+    },
+    {
+      "symbol": "BURVA",
+      "name": "Burcelik Vana Sanayi ve Ticaret A.S.",
+      "price": 775.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "BVSAN",
+      "name": "BULBULOGLU VINC SANAYI VE TICARET A.S.",
+      "price": 105.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "BYDNR",
+      "name": "Baydoner Restoranlari A.S.",
+      "price": 33.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "CANTE",
+      "name": "CAN2 TERMIK A.S.",
+      "price": 1.54,
+      "type": "stock"
+    },
+    {
+      "symbol": "CASA",
+      "name": "Casa Emtia Petrol Kimyevi ve Turevleri Sanayi Ticaret AS",
+      "price": 95.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "CATES",
+      "name": "Cates Elektrik Uretim Anonim Sirketi",
+      "price": 45.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "CCOLA",
+      "name": "Coca-Cola Icecek A.S.",
+      "price": 71.35,
+      "type": "stock"
+    },
+    {
+      "symbol": "CELHA",
+      "name": "Celik Halat ve Tel Sanayii A.S.",
+      "price": 9.76,
+      "type": "stock"
+    },
+    {
+      "symbol": "CEMAS",
+      "name": "Cemas Dokum Sanayi A.S.",
+      "price": 4.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "CEMTS",
+      "name": "Cemtas Celik Makina Sanayi ve Ticaret A.S.",
+      "price": 10.38,
+      "type": "stock"
+    },
+    {
+      "symbol": "CEMZY",
+      "name": "CEM ZEYTIN ANONIM SIRKETI",
+      "price": 63.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "CEOEM",
+      "name": "CEO Event Medya AS",
+      "price": 21.52,
+      "type": "stock"
+    },
+    {
+      "symbol": "CGCAM",
+      "name": "Cagdas Cam Sanayi ve Ticaret AS",
+      "price": 36.02,
+      "type": "stock"
+    },
+    {
+      "symbol": "CIMSA",
+      "name": "Cimsa Cimento Sanayi ve Ticaret A.S.",
+      "price": 48.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "CLEBI",
+      "name": "Celebi Hava Servisi A.S.",
+      "price": 1788.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "CMBTN",
+      "name": "Cimbeton Hazir Beton ve Prefabrik Yapi Elemanlari Sanayi ve Ticaret A.S.",
+      "price": 1713.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "CMENT",
+      "name": "Cimentas Izmir Cimento Fabrikasi Turk A.S.",
+      "price": 339.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "CONSE",
+      "name": "Consus Enerji Isletmeciligi ve Hizmetleri A.S.",
+      "price": 3.45,
+      "type": "stock"
+    },
+    {
+      "symbol": "COSMO",
+      "name": "Cosmos Yatirim Holding A.S.",
+      "price": 184.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "CRDFA",
+      "name": "Creditwest Faktoring A.S.",
+      "price": 80.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "CRFSA",
+      "name": "CarrefourSA Carrefour Sabanci Ticaret Merkezi A.S.",
+      "price": 121.9,
+      "type": "stock"
+    },
+    {
+      "symbol": "CUSAN",
+      "name": "Cuhadaroglu Metal Sanayi ve Pazarlama AS",
+      "price": 23.28,
+      "type": "stock"
+    },
+    {
+      "symbol": "CVKMD",
+      "name": "CVK MADEN ISLETMELERI SANAYI VE TICARET A.S",
+      "price": 29.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "CWENE",
+      "name": "CW ENERJI MUHENDISLIK TICARET VE SANAYI A.S.",
+      "price": 29.02,
+      "type": "stock"
+    },
+    {
+      "symbol": "DAGI",
+      "name": "Dagi Giyim Sanayi ve Ticaret A.S.",
+      "price": 5.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "DAPGM",
+      "name": "DAP GAYRIMENKUL GELISTIRME AS",
+      "price": 15.25,
+      "type": "stock"
+    },
+    {
+      "symbol": "DARDL",
+      "name": "Dardanel Onentas Gida San. A.S.",
+      "price": 2.01,
+      "type": "stock"
+    },
+    {
+      "symbol": "DCTTR",
+      "name": "DCT Trading Dis Ticaret Anonim Sirketi",
+      "price": 8.36,
+      "type": "stock"
+    },
+    {
+      "symbol": "DENGE",
+      "name": "Denge Yatirim Holding AS",
+      "price": 2.49,
+      "type": "stock"
+    },
+    {
+      "symbol": "DERHL",
+      "name": "Derluks Yatirim Holding AS",
+      "price": 14.45,
+      "type": "stock"
+    },
+    {
+      "symbol": "DERIM",
+      "name": "Derimod Konfeksiyon Ayakkabi Deri Sanayi ve Ticaret A.S.",
+      "price": 39.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "DESA",
+      "name": "Desa Deri Sanayi ve Ticaret A.S.",
+      "price": 11.94,
+      "type": "stock"
+    },
+    {
+      "symbol": "DESPC",
+      "name": "Despec Bilgisayar Pazarlama ve Ticaret A.S.",
+      "price": 38.72,
+      "type": "stock"
+    },
+    {
+      "symbol": "DEVA",
+      "name": "Deva Holding A.S.",
+      "price": 62.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "DGATE",
+      "name": "Datagate Bilgisayar Malzemeleri Ticaret A.S.",
+      "price": 82.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "DGGYO",
+      "name": "Dogus Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 28.58,
+      "type": "etf"
+    },
+    {
+      "symbol": "DGNMO",
+      "name": "Doganlar Mobilya Grubu Imalat Sanayi ve Ticaret A.S.",
+      "price": 3.88,
+      "type": "stock"
+    },
+    {
+      "symbol": "DIRIT",
+      "name": "Diriteks Dirilis Tekstil Sanayi ve Ticaret AS",
+      "price": 26.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "DITAS",
+      "name": "Ditas Dogan Yedek Parca Imalat ve Teknik A.S.",
+      "price": 43.74,
+      "type": "stock"
+    },
+    {
+      "symbol": "DMLKT",
+      "name": "Emlak Konut Gayrimenkul Yatirim Ortakligi A.S. 0 % Certificates 2025-31.12.2199",
+      "price": 5.75,
+      "type": "stock"
+    },
+    {
+      "symbol": "DMRGD",
+      "name": "DMR Unlu Mamuller Uretim Gida Toptan Perakende Ihracat A.S.",
+      "price": 4.35,
+      "type": "stock"
+    },
+    {
+      "symbol": "DMSAS",
+      "name": "Demisas Dokum Emaye Mamulleri Sanayi A.S.",
+      "price": 9.07,
+      "type": "stock"
+    },
+    {
+      "symbol": "DNISI",
+      "name": "Dinamik Isi Makina Yalitim Malzemeleri Sanayi ve Ticaret AS",
+      "price": 19.72,
+      "type": "stock"
+    },
+    {
+      "symbol": "DOAS",
+      "name": "Dogus Otomotiv Servis ve Ticaret Anonim Sirketi",
+      "price": 196.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "DOCO",
+      "name": "DO & CO Aktiengesellschaft",
+      "price": 9170.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "DOFER",
+      "name": "Dofer Yapi Maizemeleri Sanayi ve Ticaret A.S.",
+      "price": 37.06,
+      "type": "stock"
+    },
+    {
+      "symbol": "DOFRB",
+      "name": "DOF Robotik Sanayi Anonim Sirketi",
+      "price": 100.9,
+      "type": "stock"
+    },
+    {
+      "symbol": "DOGUB",
+      "name": "Dogusan Boru Sanayii ve Ticaret A.S.",
+      "price": 59.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "DOHOL",
+      "name": "Dogan Sirketler Grubu Holding A.S.",
+      "price": 21.06,
+      "type": "stock"
+    },
+    {
+      "symbol": "DOKTA",
+      "name": "Doktas Dokumculuk Ticaret ve Sanayi A.S.",
+      "price": 22.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "DSTKF",
+      "name": "Destek Finans Faktoring A.S.",
+      "price": 1840.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "DUNYH",
+      "name": "Dunya Holding Anonim Sirketi",
+      "price": 107.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "DURDO",
+      "name": "Duran Dogan Basim ve Ambalaj Sanayi A.S.",
+      "price": 3.68,
+      "type": "stock"
+    },
+    {
+      "symbol": "DURKN",
+      "name": "Durukan Sekerleme Sanayi ve Ticaret AS",
+      "price": 18.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "DYOBY",
+      "name": "Dyo Boya Fabrikalari Sanayi ve Ticaret A.S.",
+      "price": 13.34,
+      "type": "stock"
+    },
+    {
+      "symbol": "DZGYO",
+      "name": "Deniz Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 7.71,
+      "type": "stock"
+    },
+    {
+      "symbol": "EBEBK",
+      "name": "EBEBEK MAGAZACILIK ANONIM SIRKETI",
+      "price": 63.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "ECILC",
+      "name": "EIS Eczacibasi Ilac, Sinai ve Finansal Yatirimlar Sanayi ve Ticaret A.S.",
+      "price": 121.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "ECOGR",
+      "name": "Ecogreen Enerji Holding A.S.",
+      "price": 36.34,
+      "type": "stock"
+    },
+    {
+      "symbol": "ECZYT",
+      "name": "Eczacibasi Yatirim Holding Ortakligi AS",
+      "price": 302.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "EDATA",
+      "name": "E-Data Teknoloji Pazarlama AS",
+      "price": 14.23,
+      "type": "stock"
+    },
+    {
+      "symbol": "EDIP",
+      "name": "Edip Gayrimenkul Yatirim Sanayi ve Ticaret A.S.",
+      "price": 35.94,
+      "type": "stock"
+    },
+    {
+      "symbol": "EFOR",
+      "name": "Efor Yatirim Sanayi Ticaret A.S.",
+      "price": 12.53,
+      "type": "stock"
+    },
+    {
+      "symbol": "EGEEN",
+      "name": "Ege Endustri ve Ticaret A.S.",
+      "price": 5892.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "EGEGY",
+      "name": "Egeyapi Avrupa Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 29.24,
+      "type": "stock"
+    },
+    {
+      "symbol": "EGEPO",
+      "name": "Nasmed Ozel Saglik Hizmetleri Ticaret A.S.",
+      "price": 13.55,
+      "type": "stock"
+    },
+    {
+      "symbol": "EGGUB",
+      "name": "Ege Gubre Sanayii A.S.",
+      "price": 125.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "EGPRO",
+      "name": "Ege Profil Ticaret ve Sanayi A.S.",
+      "price": 29.22,
+      "type": "stock"
+    },
+    {
+      "symbol": "EGSER",
+      "name": "Ege Seramik Sanayi ve Ticaret A.S.",
+      "price": 2.88,
+      "type": "stock"
+    },
+    {
+      "symbol": "EKGYO",
+      "name": "Emlak Konut Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 20.34,
+      "type": "etf"
+    },
+    {
+      "symbol": "EKIZ",
+      "name": "Ekiz Kimya Sanayi ve Ticaret A.S.",
+      "price": 110.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "EKOS",
+      "name": "Ekos Teknoloji ve Elektrik AS",
+      "price": 5.58,
+      "type": "stock"
+    },
+    {
+      "symbol": "EKSUN",
+      "name": "Eksun Gida Tarim Sanayi ve Ticaret",
+      "price": 5.32,
+      "type": "stock"
+    },
+    {
+      "symbol": "ELITE",
+      "name": "Elite Naturel Organik Gida Sanayi ve Ticaret AS",
+      "price": 28.32,
+      "type": "stock"
+    },
+    {
+      "symbol": "EMKEL",
+      "name": "Emek Elektrik Endustrisi A.S.",
+      "price": 20.28,
+      "type": "stock"
+    },
+    {
+      "symbol": "EMNIS",
+      "name": "Eminis Ambalaj Sanayi ve Ticaret A.S.",
+      "price": 155.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "EMPAE",
+      "name": "Empa Elektronik Sanayi ve Ticaret A.S.",
+      "price": 42.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "ENDAE",
+      "name": "Enda Enerji Holding Anonim Sirketi",
+      "price": 14.49,
+      "type": "stock"
+    },
+    {
+      "symbol": "ENERY",
+      "name": "Enerya Enerji A.S.",
+      "price": 8.72,
+      "type": "stock"
+    },
+    {
+      "symbol": "ENJSA",
+      "name": "Enerjisa Enerji A.S.",
+      "price": 119.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "ENKAI",
+      "name": "Enka Insaat ve Sanayi A.S.",
+      "price": 96.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "ENSRI",
+      "name": "Ensari Sinai Yatirimlar A.S.",
+      "price": 34.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "ENTRA",
+      "name": "IC Enterra Yenilenebilir Enerji AS",
+      "price": 10.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "EPLAS",
+      "name": "Egeplast Ege Plastik Ticaret ve Sanayi A.S.",
+      "price": 6.16,
+      "type": "stock"
+    },
+    {
+      "symbol": "ERBOS",
+      "name": "Erbosan Erciyas Boru Sanayii ve Ticaret A.S.",
+      "price": 185.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "ERCB",
+      "name": "Erciyas Celik Boru Sanayi A.S.",
+      "price": 51.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "EREGL",
+      "name": "Eregli Demir Ve Celik Fabrikalari T.A.S.",
+      "price": 28.28,
+      "type": "stock"
+    },
+    {
+      "symbol": "ERSU",
+      "name": "Ersu Meyve ve Gida Sanayi A.S.",
+      "price": 22.56,
+      "type": "stock"
+    },
+    {
+      "symbol": "ESCAR",
+      "name": "Escar Filo Kiralama Hizmetleri Anonim Sirketi",
+      "price": 30.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "ESCOM",
+      "name": "Escort Teknoloji Yatirim A.S.",
+      "price": 5.32,
+      "type": "stock"
+    },
+    {
+      "symbol": "ESEN",
+      "name": "Esenboga Elektrik Uretim AS",
+      "price": 3.95,
+      "type": "stock"
+    },
+    {
+      "symbol": "ETILR",
+      "name": "Etiler Gida ve Ticari Yatirimlar Sanayi ve Ticaret A.S.",
+      "price": 3.86,
+      "type": "stock"
+    },
+    {
+      "symbol": "ETYAT",
+      "name": "Euro Trend Yatirim Ortakligi A.S.",
+      "price": 21.34,
+      "type": "stock"
+    },
+    {
+      "symbol": "EUHOL",
+      "name": "Euro Yatirim Holding A.S.",
+      "price": 13.27,
+      "type": "stock"
+    },
+    {
+      "symbol": "EUKYO",
+      "name": "Euro Kapital Yatirim Ortakligi AS",
+      "price": 18.72,
+      "type": "stock"
+    },
+    {
+      "symbol": "EUPWR",
+      "name": "Europower Enerji ve Otomasyon Teknolojileri Sanayi Ticaret AS",
+      "price": 34.54,
+      "type": "stock"
+    },
+    {
+      "symbol": "EUREN",
+      "name": "Europen Endustri Insaat Sanayi ve Ticaret A.S.",
+      "price": 4.81,
+      "type": "stock"
+    },
+    {
+      "symbol": "EUYO",
+      "name": "Euro Menkul Kiymet Yatirim Ortakligi A.S.",
+      "price": 17.29,
+      "type": "stock"
+    },
+    {
+      "symbol": "EYGYO",
+      "name": "EYG Gayrimenkul Yatirim Ortakligi AS",
+      "price": 3.21,
+      "type": "etf"
+    },
+    {
+      "symbol": "FADE",
+      "name": "Fade Gida Yatirim Sanayi Ticaret A.S.",
+      "price": 13.75,
+      "type": "stock"
+    },
+    {
+      "symbol": "FENER",
+      "name": "Fenerbahce Futbol A.S.",
+      "price": 2.71,
+      "type": "stock"
+    },
+    {
+      "symbol": "FLAP",
+      "name": "Flap Kongre Toplanti Hizmetleri Otomotiv ve Turizm A.S.",
+      "price": 10.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "FMIZP",
+      "name": "Federal-Mogul Izmit Piston ve Pim Uretim Tesisleri A.S.",
+      "price": 299.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "FONET",
+      "name": "Fonet Bilgi Teknolojileri AS",
+      "price": 4.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "FORMT",
+      "name": "FORMET METAL VE CAM SANAYI A.S.",
+      "price": 2.86,
+      "type": "stock"
+    },
+    {
+      "symbol": "FORTE",
+      "name": "FORTE BILGI ILETISIM TEKNOLOJILERI VE SAVUNMA SANAYI A.S.",
+      "price": 97.05,
+      "type": "stock"
+    },
+    {
+      "symbol": "FRIGO",
+      "name": "Frigo-Pak Gida Maddeleri Sanayi ve Ticaret A.S.",
+      "price": 9.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "FRMPL",
+      "name": "Formul Plastik Ve Metal Sanayi AS",
+      "price": 31.46,
+      "type": "stock"
+    },
+    {
+      "symbol": "FROTO",
+      "name": "Ford Otomotiv Sanayi A.S.",
+      "price": 105.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "FZLGY",
+      "name": "FUZUL GAYRIMENKUL YATIRIM ORTAKLIGI A.S.",
+      "price": 16.19,
+      "type": "stock"
+    },
+    {
+      "symbol": "GARAN",
+      "name": "Turkiye Garanti Bankasi Anonim Sirketi",
+      "price": 135.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "GARFA",
+      "name": "Garanti Faktoring A.S.",
+      "price": 26.78,
+      "type": "stock"
+    },
+    {
+      "symbol": "GATEG",
+      "name": "Gate Group Teknoloji Medya Ve Siber Guvenlik Hizmetleri A.S.",
+      "price": 316.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "GEDIK",
+      "name": "Gedik Yatirim Menkul Degerler A.S.",
+      "price": 5.37,
+      "type": "stock"
+    },
+    {
+      "symbol": "GEDZA",
+      "name": "Gediz Ambalaj Sanayi ve Ticaret AS",
+      "price": 31.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "GENIL",
+      "name": "Gen Ilac ve Saglik Urunleri Sanayi ve Ticaret A.S.",
+      "price": 9.4,
+      "type": "stock"
+    },
+    {
+      "symbol": "GENKM",
+      "name": "Gentas Kimya Sanayi ve Ticaret Pazarlama",
+      "price": 13.23,
+      "type": "stock"
+    },
+    {
+      "symbol": "GENTS",
+      "name": "Gentas Dekoratif Yuzeyler Sanayi ve Ticaret A.S.",
+      "price": 8.11,
+      "type": "stock"
+    },
+    {
+      "symbol": "GEREL",
+      "name": "Gersan Elektrik Ticaret ve Sanayi A.S.",
+      "price": 29.74,
+      "type": "stock"
+    },
+    {
+      "symbol": "GESAN",
+      "name": "GIRISIM ELEKTRIK SANAYI TAAHHUT VE TICARET A.S.",
+      "price": 44.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "GIPTA",
+      "name": "Gipta Ofis Kirtasiye ve Promosyon Urunleri Imalat Sanayi A.S.",
+      "price": 70.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "GLBMD",
+      "name": "Global Menkul Degerler A.S.",
+      "price": 12.04,
+      "type": "stock"
+    },
+    {
+      "symbol": "GLCVY",
+      "name": "GELECEK VARLIK YONETIMI A.S",
+      "price": 64.65,
+      "type": "stock"
+    },
+    {
+      "symbol": "GLDTR",
+      "name": "GOLDIST - Istanbul Gold ETF",
+      "price": 603.5,
+      "type": "etf"
+    },
+    {
+      "symbol": "GLRMK",
+      "name": "Gulermak Agir Sanayi Insaat Ve Taahhut A.S.",
+      "price": 168.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "GLRYH",
+      "name": "Guler Yatirim Holding A.S.",
+      "price": 4.37,
+      "type": "stock"
+    },
+    {
+      "symbol": "GLYHO",
+      "name": "Global Yatirim Holding A.S.",
+      "price": 14.4,
+      "type": "stock"
+    },
+    {
+      "symbol": "GMSTR",
+      "name": "Istanbul Silver B Tipi Gumus Borsa Yatirim Fonu",
+      "price": 698.25,
+      "type": "etf"
+    },
+    {
+      "symbol": "GMTAS",
+      "name": "Gimat Magazacilik Insaat Sanayi ve Ticaret A.S.",
+      "price": 27.06,
+      "type": "stock"
+    },
+    {
+      "symbol": "GOKNR",
+      "name": "GOKNUR GIDA MADDELERI ENERJI IMALAT ITHALAT IHRACAT TICARET VE SANAYI A.S.",
+      "price": 20.94,
+      "type": "stock"
+    },
+    {
+      "symbol": "GOLTS",
+      "name": "Goltas Goller Bolgesi Cimento Sanayi ve Ticaret A.S.",
+      "price": 342.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "GOODY",
+      "name": "Goodyear Lastikleri T.A.S.",
+      "price": 14.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "GOZDE",
+      "name": "Gozde Girisim Sermayesi Yatirim Ortakligi A.S.",
+      "price": 20.84,
+      "type": "stock"
+    },
+    {
+      "symbol": "GRNYO",
+      "name": "Garanti Yatirim Ortakligi A.S.",
+      "price": 16.23,
+      "type": "stock"
+    },
+    {
+      "symbol": "GRSEL",
+      "name": "Gur-Sel Turizm Tasimacilik Ve Servis Ticaret A.S.",
+      "price": 332.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "GRTHO",
+      "name": "Grainturk Holding A.S.",
+      "price": 242.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "GSDDE",
+      "name": "GSD Denizcilik Gayrimenkul Insaat Sanayi ve Ticaret AS",
+      "price": 9.93,
+      "type": "stock"
+    },
+    {
+      "symbol": "GSDHO",
+      "name": "GSD Holding A.S.",
+      "price": 4.29,
+      "type": "stock"
+    },
+    {
+      "symbol": "GSRAY",
+      "name": "Galatasaray Sportif Sinai Veticari Yatirimlar A.S.",
+      "price": 1.16,
+      "type": "stock"
+    },
+    {
+      "symbol": "GUBRF",
+      "name": "Gubre Fabrikalari T.A.S.",
+      "price": 512.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "GUNDG",
+      "name": "Gundogdu Gida Sut Urunleri Sanayi Ve Dis Ticaret AS",
+      "price": 719.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "GWIND",
+      "name": "GALATA WIND ENERJI A.S.",
+      "price": 25.86,
+      "type": "stock"
+    },
+    {
+      "symbol": "GZNMI",
+      "name": "Gezinomi Seyahat Turizm Ticaret A.S.",
+      "price": 58.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "HALKB",
+      "name": "Turkiye Halk Bankasi Anonim Sirketi",
+      "price": 39.46,
+      "type": "stock"
+    },
+    {
+      "symbol": "HATEK",
+      "name": "Hateks Hatay Tekstil Isletmeleri A.S.",
+      "price": 15.36,
+      "type": "stock"
+    },
+    {
+      "symbol": "HATSN",
+      "name": "Hat-San Gemi Insaa Bakim Onarim Deniz Nakliyat Sanayi ve Ticaret A.S.",
+      "price": 37.32,
+      "type": "stock"
+    },
+    {
+      "symbol": "HDFGS",
+      "name": "Hedef Girisim Sermayesi Yatirim Ortakligi A.S.",
+      "price": 3.15,
+      "type": "stock"
+    },
+    {
+      "symbol": "HEDEF",
+      "name": "Hedef Holding AS",
+      "price": 107.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "HEKTS",
+      "name": "Hektas Ticaret T.A.S.",
+      "price": 2.97,
+      "type": "stock"
+    },
+    {
+      "symbol": "HKTM",
+      "name": "HIDROPAR HAREKET KONTROL TEKNOLOJILERI MERKEZI SANAYI VE TICARET ANONIM SIRKETI",
+      "price": 11.63,
+      "type": "stock"
+    },
+    {
+      "symbol": "HLGYO",
+      "name": "Halk Gayrimenkul Yatirim Ortakligi AS",
+      "price": 5.16,
+      "type": "etf"
+    },
+    {
+      "symbol": "HOROZ",
+      "name": "Horoz Lojistik Kargo Hizmetleri Ve Ticaret AS",
+      "price": 55.95,
+      "type": "stock"
+    },
+    {
+      "symbol": "HRKET",
+      "name": "Hareket Proje Tasimaciligi ve Yuk Muhendisligi AS",
+      "price": 64.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "HTTBT",
+      "name": "Hitit Bilgisayar Hizmetleri A.S.",
+      "price": 37.4,
+      "type": "stock"
+    },
+    {
+      "symbol": "HUBVC",
+      "name": "Hub Girisim Sermayesi Yatirim Ortakligi A.S.",
+      "price": 5.12,
+      "type": "stock"
+    },
+    {
+      "symbol": "HUNER",
+      "name": "Hun Yenilenebilir Enerji Uretim AS",
+      "price": 3.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "HURGZ",
+      "name": "Hurriyet Gazetecilik ve Matbaacilik A.S.",
+      "price": 5.71,
+      "type": "stock"
+    },
+    {
+      "symbol": "ICBCT",
+      "name": "ICBC Turkey Bank Anonim Sirketi",
+      "price": 14.76,
+      "type": "stock"
+    },
+    {
+      "symbol": "ICUGS",
+      "name": "ICU Girisim Sermayesi Yatirim Ortakligi A.S.",
+      "price": 2.79,
+      "type": "stock"
+    },
+    {
+      "symbol": "IDGYO",
+      "name": "Idealist Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 3.9,
+      "type": "etf"
+    },
+    {
+      "symbol": "IEYHO",
+      "name": "Isiklar Enerji ve Yapi Holding Anonim Sirketi",
+      "price": 89.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "IHAAS",
+      "name": "Ihlas Haber Ajansi SA",
+      "price": 84.45,
+      "type": "stock"
+    },
+    {
+      "symbol": "IHEVA",
+      "name": "Ihlas Ev Aletleri Imalat, Sanayi ve Ticaret A.S.",
+      "price": 2.22,
+      "type": "stock"
+    },
+    {
+      "symbol": "IHGZT",
+      "name": "Ihlas Gazetecilik A.S.",
+      "price": 1.44,
+      "type": "stock"
+    },
+    {
+      "symbol": "IHLAS",
+      "name": "Ihlas Holding A.S.",
+      "price": 2.03,
+      "type": "stock"
+    },
+    {
+      "symbol": "IHLGM",
+      "name": "Ihlas Gayrimenkul Proje Gelistirme ve Ticaret A.S.",
+      "price": 2.01,
+      "type": "stock"
+    },
+    {
+      "symbol": "IHYAY",
+      "name": "Ihlas Yayin Holding A.S.",
+      "price": 1.76,
+      "type": "stock"
+    },
+    {
+      "symbol": "IMASM",
+      "name": "IMAS Makina Sanayi Anonim Sirketi",
+      "price": 3.63,
+      "type": "stock"
+    },
+    {
+      "symbol": "INDES",
+      "name": "Indeks Bilgisayar Sistemleri Muhendislik Sanayi ve Ticaret A.S",
+      "price": 8.9,
+      "type": "stock"
+    },
+    {
+      "symbol": "INFO",
+      "name": "INFO YATIRIM MENKUL DEGERLER A.S",
+      "price": 3.45,
+      "type": "stock"
+    },
+    {
+      "symbol": "INGRM",
+      "name": "Ingram Micro Bilisim Sistemleri A.S.",
+      "price": 385.25,
+      "type": "stock"
+    },
+    {
+      "symbol": "INTEK",
+      "name": "Innosa Teknoloji Anonim Sirketi",
+      "price": 260.25,
+      "type": "stock"
+    },
+    {
+      "symbol": "INTEM",
+      "name": "Intema Insaat ve Tesisat Malzemeleri Yatirim ve Pazarlama A.S.",
+      "price": 267.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "INVEO",
+      "name": "Inveo Yatirim Holding AS",
+      "price": 7.38,
+      "type": "stock"
+    },
+    {
+      "symbol": "INVES",
+      "name": "Investco Holding A.S.",
+      "price": 396.25,
+      "type": "stock"
+    },
+    {
+      "symbol": "ISBIR",
+      "name": "Isbir Holding AS",
+      "price": 72.25,
+      "type": "stock"
+    },
+    {
+      "symbol": "ISBTR",
+      "name": "Turkiye Is Bankasi Anonim Sirketi Class B",
+      "price": 425000.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "ISCTR",
+      "name": "Turkiye Is Bankasi Anonim Sirketi Class C",
+      "price": 14.18,
+      "type": "stock"
+    },
+    {
+      "symbol": "ISDMR",
+      "name": "Iskenderun Demir ve Celik AS",
+      "price": 42.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "ISFIN",
+      "name": "Is Finansal Kiralama A.S.",
+      "price": 19.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "ISGLK",
+      "name": "Is Portfoy Yonetim ETF",
+      "price": 777.0,
+      "type": "etf"
+    },
+    {
+      "symbol": "ISGSY",
+      "name": "Is Girisim Sermayesi Yatirim Ortakligi A.S.",
+      "price": 148.4,
+      "type": "etf"
+    },
+    {
+      "symbol": "ISGYO",
+      "name": "Is Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 21.2,
+      "type": "etf"
+    },
+    {
+      "symbol": "ISKPL",
+      "name": "Isik Plastik Sanayi VE Dis Ticaret Pazarlama AS",
+      "price": 11.98,
+      "type": "stock"
+    },
+    {
+      "symbol": "ISMEN",
+      "name": "Is Yatirim Menkul Degerler AS",
+      "price": 44.76,
+      "type": "stock"
+    },
+    {
+      "symbol": "ISSEN",
+      "name": "Isbir Sentetik Dokuma Sanayi AS",
+      "price": 7.16,
+      "type": "stock"
+    },
+    {
+      "symbol": "ISYAT",
+      "name": "Is Yatirim Ortakligi A.S.",
+      "price": 8.44,
+      "type": "etf"
+    },
+    {
+      "symbol": "IZENR",
+      "name": "Izdemir Enerji Elektrik Uretim A.S.",
+      "price": 9.53,
+      "type": "stock"
+    },
+    {
+      "symbol": "IZFAS",
+      "name": "Izmir Firca Sanayi ve Ticaret AS",
+      "price": 52.35,
+      "type": "stock"
+    },
+    {
+      "symbol": "IZINV",
+      "name": "Iz Yatirim Holding AS",
+      "price": 59.35,
+      "type": "stock"
+    },
+    {
+      "symbol": "IZMDC",
+      "name": "Izmir Demir Celik Sanayi A.S.",
+      "price": 6.48,
+      "type": "stock"
+    },
+    {
+      "symbol": "JANTS",
+      "name": "Jantsa Jant Sanayi ve Ticaret AS",
+      "price": 16.99,
+      "type": "stock"
+    },
+    {
+      "symbol": "KAPLM",
+      "name": "Kaplamin Ambalaj Sanayi ve Ticaret A.S.",
+      "price": 413.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "KAREL",
+      "name": "Karel Elektronik Sanayi ve Ticaret SA",
+      "price": 8.68,
+      "type": "stock"
+    },
+    {
+      "symbol": "KARSN",
+      "name": "Karsan Otomotiv Sanayii ve Ticaret A.S.",
+      "price": 9.99,
+      "type": "stock"
+    },
+    {
+      "symbol": "KARTN",
+      "name": "Kartonsan Karton Sanayi ve Ticaret Anonim Sirketi",
+      "price": 70.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "KATMR",
+      "name": "Katmerciler Arac Ustu Ekipman Sanayi ve Ticaret A.S.",
+      "price": 2.88,
+      "type": "stock"
+    },
+    {
+      "symbol": "KAYSE",
+      "name": "Kayseri Seker Fabrikasi AS",
+      "price": 4.56,
+      "type": "stock"
+    },
+    {
+      "symbol": "KBORU",
+      "name": "Kuzey Boru A.S.",
+      "price": 18.03,
+      "type": "stock"
+    },
+    {
+      "symbol": "KCAER",
+      "name": "Kocaer Celik Sanayi ve Ticaret AS",
+      "price": 11.72,
+      "type": "stock"
+    },
+    {
+      "symbol": "KCHOL",
+      "name": "Koc Holding A.S.",
+      "price": 189.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "KENT",
+      "name": "Kent Gida Maddeleri Sanayii ve Ticaret A.S.",
+      "price": 454.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "KERVN",
+      "name": "Kervansaray Yatirim Holding A.S.",
+      "price": 4.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "KFEIN",
+      "name": "Kafein Yazilim Hizmetleri Ticaret AS",
+      "price": 8.68,
+      "type": "stock"
+    },
+    {
+      "symbol": "KGYO",
+      "name": "KORAY GAYRIMENKUL YATIRIM ORTAKLIGI A.S. Class B",
+      "price": 7.69,
+      "type": "etf"
+    },
+    {
+      "symbol": "KIMMR",
+      "name": "Ersan Alisveris Hizmetleri ve Gida Sanayi Ticaret A.S.",
+      "price": 19.01,
+      "type": "stock"
+    },
+    {
+      "symbol": "KLGYO",
+      "name": "Kiler Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 5.68,
+      "type": "etf"
+    },
+    {
+      "symbol": "KLKIM",
+      "name": "Kalekim Kimyevi Maddeler Sanayi ve Ticaret AS",
+      "price": 40.04,
+      "type": "stock"
+    },
+    {
+      "symbol": "KLMSN",
+      "name": "Klimasan Klima Sanayi ve Ticaret A.S.",
+      "price": 29.04,
+      "type": "stock"
+    },
+    {
+      "symbol": "KLNMA",
+      "name": "Turkiye Kalkinma ve Yatirim Bankasi A.S.",
+      "price": 10.59,
+      "type": "stock"
+    },
+    {
+      "symbol": "KLRHO",
+      "name": "KILER HOLDING A.S.",
+      "price": 129.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "KLSER",
+      "name": "Kaleseramik Canakkale Kalebodur Seramik A.S.",
+      "price": 25.54,
+      "type": "stock"
+    },
+    {
+      "symbol": "KLSYN",
+      "name": "Koleksiyon Mobilya Sanayi AS",
+      "price": 9.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "KLYPV",
+      "name": "Kalyon Gunes Teknolojileri Uretim Anonim Sirketi",
+      "price": 55.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "KMPUR",
+      "name": "Kimteks Poliuretan Sanayi ve Ticaret AS",
+      "price": 16.73,
+      "type": "stock"
+    },
+    {
+      "symbol": "KNFRT",
+      "name": "Konfrut Tarim A.S.",
+      "price": 10.89,
+      "type": "stock"
+    },
+    {
+      "symbol": "KOCMT",
+      "name": "Koc Metalurji AS",
+      "price": 2.53,
+      "type": "stock"
+    },
+    {
+      "symbol": "KONKA",
+      "name": "Konya Kagit Sanayi ve Ticaret AS",
+      "price": 15.37,
+      "type": "stock"
+    },
+    {
+      "symbol": "KONTR",
+      "name": "Kontrolmatik Teknoloji Enerji ve Muhendislik AS",
+      "price": 9.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "KONYA",
+      "name": "Konya Cimento Sanayi A.S.",
+      "price": 4017.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "KOPOL",
+      "name": "KOZA POLYESTER SANAYI VE TICARET A.S.",
+      "price": 6.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "KORDS",
+      "name": "Kordsa Teknik Tekstil A.S.",
+      "price": 57.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "KOTON",
+      "name": "Koton Magazacilik Tekstil Sanayi ve Ticaret A.S.",
+      "price": 15.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "KRDMA",
+      "name": "Kardemir Karabiik Demir celik Sanayi ve Ticaret A.S. Class A",
+      "price": 30.48,
+      "type": "stock"
+    },
+    {
+      "symbol": "KRDMB",
+      "name": "Kardemir Karabiik Demir celik Sanayi ve Ticaret A.S. Class B",
+      "price": 51.55,
+      "type": "stock"
+    },
+    {
+      "symbol": "KRDMD",
+      "name": "Kardemir Karabiik Demir celik Sanayi ve Ticaret A.S. Class D",
+      "price": 30.14,
+      "type": "stock"
+    },
+    {
+      "symbol": "KRGYO",
+      "name": "Korfez Gayrimenkul Yatirim Ortakligi AS",
+      "price": 2.76,
+      "type": "etf"
+    },
+    {
+      "symbol": "KRONT",
+      "name": "Kron Teknoloji AS",
+      "price": 22.34,
+      "type": "stock"
+    },
+    {
+      "symbol": "KRPLS",
+      "name": "Koroplast Temizlik Ambalaj Urunleri Sanayi ve dis Ticaret AS",
+      "price": 8.46,
+      "type": "stock"
+    },
+    {
+      "symbol": "KRSTL",
+      "name": "Kristal Kola ve Mesrubat Sanayi Ticaret A.S.",
+      "price": 8.78,
+      "type": "stock"
+    },
+    {
+      "symbol": "KRTEK",
+      "name": "Karsu Tekstil Sanayii ve Ticaret A.S.",
+      "price": 27.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "KRVGD",
+      "name": "Kervan Gida Sanayi ve Ticaret AS",
+      "price": 2.83,
+      "type": "stock"
+    },
+    {
+      "symbol": "KSTUR",
+      "name": "Kustur Kusadasi Turizm Endustrisi A.S.",
+      "price": 3012.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "KTLEV",
+      "name": "KATILIMEVIM TASARRUF FINANSMAN A.S.",
+      "price": 62.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "KTSKR",
+      "name": "Kutahya Seker Fabrikasi AS",
+      "price": 79.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "KUTPO",
+      "name": "Kutahya Porselen Sanayi A.S.",
+      "price": 92.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "KUVVA",
+      "name": "Kuvva Gida Ticaret ve Sanayi Yatirimlari A.S.",
+      "price": 127.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "KUYAS",
+      "name": "Kuyas Yatirim A.S.",
+      "price": 77.3,
+      "type": "etf"
+    },
+    {
+      "symbol": "KZBGY",
+      "name": "KIZILBUK GAYRIMENKUL YATIRIM ORTAKLIGI A.S.",
+      "price": 3.12,
+      "type": "etf"
+    },
+    {
+      "symbol": "KZGYO",
+      "name": "Kuzugrup Gayrimenkul Yatirim Ortakligi AS",
+      "price": 21.96,
+      "type": "stock"
+    },
+    {
+      "symbol": "LIDER",
+      "name": "LDR Turizm A.S.",
+      "price": 96.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "LIDFA",
+      "name": "Lider Faktoring Anonim Sirketi",
+      "price": 3.63,
+      "type": "stock"
+    },
+    {
+      "symbol": "LILAK",
+      "name": "Lila Kagit Sanayi Ve Ticaret Anonim Sirketi",
+      "price": 31.72,
+      "type": "stock"
+    },
+    {
+      "symbol": "LINK",
+      "name": "Link Bilgisayar Sistemleri Yazilimi ve Donanimi Sanayi ve Ticaret A.S.",
+      "price": 6.49,
+      "type": "stock"
+    },
+    {
+      "symbol": "LKMNH",
+      "name": "Lokman Hekim Engurusag Saglik, Turizm, Egitim Hizmetleri ve Insaat Taahhut A.S.",
+      "price": 16.02,
+      "type": "stock"
+    },
+    {
+      "symbol": "LMKDC",
+      "name": "Limak Dogu Anadolu Cimento Sanayi Ve Ticaret AS",
+      "price": 34.12,
+      "type": "stock"
+    },
+    {
+      "symbol": "LOGO",
+      "name": "Logo Yazilim Sanayi ve Ticaret A.S.",
+      "price": 135.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "LRSHO",
+      "name": "Loras Holding Anonim Sirketi",
+      "price": 3.36,
+      "type": "stock"
+    },
+    {
+      "symbol": "LUKSK",
+      "name": "Luks Kadife Ticaret ve Sanayi A.S.",
+      "price": 96.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "LXGYO",
+      "name": "Luxera Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 23.42,
+      "type": "stock"
+    },
+    {
+      "symbol": "LYDHO",
+      "name": "Lydia Holding A.S.",
+      "price": 193.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "LYDYE",
+      "name": "Lydia Yesil Enerji kaynaklari A.S.",
+      "price": 17380.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "MAALT",
+      "name": "Marmaris Altinyunus Turistik Tesisler A.S",
+      "price": 1152.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "MACKO",
+      "name": "Mackolik Internet Hizmetleri Ticaret AS",
+      "price": 32.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "MAGEN",
+      "name": "MARGUN ENERJI URETIM SANAYI VE TICARET A.S.",
+      "price": 49.22,
+      "type": "stock"
+    },
+    {
+      "symbol": "MAKIM",
+      "name": "MAKIM MAKINA TEKNOLOJILERI SANAYIVE TICARET A.S.",
+      "price": 15.47,
+      "type": "stock"
+    },
+    {
+      "symbol": "MAKTK",
+      "name": "Makina Takim Endustrisi A.S.",
+      "price": 13.46,
+      "type": "stock"
+    },
+    {
+      "symbol": "MANAS",
+      "name": "Manas Enerji Yonetimi Sanayi ve Ticaret A.S.",
+      "price": 25.98,
+      "type": "stock"
+    },
+    {
+      "symbol": "MARBL",
+      "name": "Tureks Turunc Madencilik Ic ve Dis Ticaret A.S.",
+      "price": 12.37,
+      "type": "stock"
+    },
+    {
+      "symbol": "MARKA",
+      "name": "Marka Yatirim Holding A.S.",
+      "price": 32.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "MARMR",
+      "name": "Marmara Holding AS",
+      "price": 2.44,
+      "type": "stock"
+    },
+    {
+      "symbol": "MARTI",
+      "name": "Marti Otel Isletmeleri A.S.",
+      "price": 1.47,
+      "type": "stock"
+    },
+    {
+      "symbol": "MAVI",
+      "name": "Mavi Giyim Sanayi ve Ticaret A.S.",
+      "price": 44.4,
+      "type": "stock"
+    },
+    {
+      "symbol": "MCARD",
+      "name": "Metropal Kurumsal Hizmetler A.S.",
+      "price": 116.9,
+      "type": "stock"
+    },
+    {
+      "symbol": "MEDTR",
+      "name": "Meditera Tibbi Malzeme Sanayi Ve Ticaret A.S.",
+      "price": 28.28,
+      "type": "stock"
+    },
+    {
+      "symbol": "MEGAP",
+      "name": "Mega Polietilen Kopuk Sanayi ve Ticaret AS",
+      "price": 2.53,
+      "type": "stock"
+    },
+    {
+      "symbol": "MEGMT",
+      "name": "Mega Metal Sanayi Ve Ticaret A.S.",
+      "price": 70.1,
+      "type": "stock"
+    },
+    {
+      "symbol": "MEKAG",
+      "name": "Meka Global Makine Imalat Sanayi Ve Ticaret A.S.",
+      "price": 6.71,
+      "type": "stock"
+    },
+    {
+      "symbol": "MEPET",
+      "name": "Mepet Metro Petrol ve Tesisleri Sanayi Ticaret AS",
+      "price": 26.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "MERCN",
+      "name": "MERCAN KIMYA SANAYI VE TICARET A.S.",
+      "price": 16.89,
+      "type": "stock"
+    },
+    {
+      "symbol": "MERIT",
+      "name": "Merit Turizm Yatirim ve Isletmeleri AS",
+      "price": 16.35,
+      "type": "stock"
+    },
+    {
+      "symbol": "MERKO",
+      "name": "Merko Gida Sanayi ve Ticaret A.S. Class A",
+      "price": 16.16,
+      "type": "stock"
+    },
+    {
+      "symbol": "METRO",
+      "name": "Metro Ticari ve Mali Yatirimlar Holding A.S.",
+      "price": 5.52,
+      "type": "stock"
+    },
+    {
+      "symbol": "MEYSU",
+      "name": "Meysu Gida Sanayi Ve Ticaret A.S.",
+      "price": 13.07,
+      "type": "stock"
+    },
+    {
+      "symbol": "MGROS",
+      "name": "Migros Ticaret A.S.",
+      "price": 592.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "MHRGY",
+      "name": "MHR Gayrimenkul Yatirim Ortakligi Anonim Sirketi",
+      "price": 3.45,
+      "type": "stock"
+    },
+    {
+      "symbol": "MIATK",
+      "name": "MIA Teknoloji AS",
+      "price": 37.82,
+      "type": "stock"
+    },
+    {
+      "symbol": "MMCAS",
+      "name": "MMC Sanayi ve Ticari Yatirimlar A.S",
+      "price": 90.9,
+      "type": "stock"
+    },
+    {
+      "symbol": "MNDRS",
+      "name": "Menderes Tekstil Sanayi ve Ticaret Anonim Sirketi",
+      "price": 13.96,
+      "type": "stock"
+    },
+    {
+      "symbol": "MNDTR",
+      "name": "Mondi Turkey Oluklu Mukavva Kagit ve Ambalaj Sanayi A.S.",
+      "price": 5.66,
+      "type": "stock"
+    },
+    {
+      "symbol": "MOBTL",
+      "name": "Mobitel Iletisim Nizmetleri Sanayi ve Ticaret A.S",
+      "price": 10.25,
+      "type": "stock"
+    },
+    {
+      "symbol": "MOGAN",
+      "name": "Mogan Enerji Yatirim Holding",
+      "price": 10.72,
+      "type": "stock"
+    },
+    {
+      "symbol": "MOPAS",
+      "name": "Mopas Marketcilik Gida Sanayi Ve Ticaret A.S.",
+      "price": 38.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "MPARK",
+      "name": "MLP Saglik Hizmetleri AS Class B",
+      "price": 429.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "MRGYO",
+      "name": "Marti Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 1.42,
+      "type": "etf"
+    },
+    {
+      "symbol": "MRSHL",
+      "name": "Marshall Boya ve Vernik Sanayi A.S.",
+      "price": 1397.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "MSGYO",
+      "name": "Mistral Gayrimenkul Yatirim Ortakligi AS",
+      "price": 8.47,
+      "type": "etf"
+    },
+    {
+      "symbol": "MTRKS",
+      "name": "Matriks Finansal Teknolojiler A.S.",
+      "price": 21.28,
+      "type": "stock"
+    },
+    {
+      "symbol": "MTRYO",
+      "name": "Metro Yatirim Ortakligi A.S.",
+      "price": 9.76,
+      "type": "stock"
+    },
+    {
+      "symbol": "MZHLD",
+      "name": "Mazhar Zorlu Holding Anonim Sirketi",
+      "price": 6.22,
+      "type": "stock"
+    },
+    {
+      "symbol": "NATEN",
+      "name": "Naturel Yenilenebilir Enerji Ticaret A.S.",
+      "price": 7.26,
+      "type": "stock"
+    },
+    {
+      "symbol": "NETAS",
+      "name": "Netas Telekomunikasyon A.S.",
+      "price": 58.05,
+      "type": "stock"
+    },
+    {
+      "symbol": "NETCD",
+      "name": "Netcad Yazilim A.S.",
+      "price": 144.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "NIBAS",
+      "name": "Nigbas Nigde Beton Sanayi ve Ticarte A.S.",
+      "price": 9.24,
+      "type": "stock"
+    },
+    {
+      "symbol": "NTGAZ",
+      "name": "Naturelgaz Sanayi Ve Ticaret A.S.",
+      "price": 12.88,
+      "type": "stock"
+    },
+    {
+      "symbol": "NTHOL",
+      "name": "Net Holding A.S.",
+      "price": 42.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "NUGYO",
+      "name": "Nurol Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 9.05,
+      "type": "etf"
+    },
+    {
+      "symbol": "NUHCM",
+      "name": "Nuh Cimento Sanayi A.S.",
+      "price": 265.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "OBAMS",
+      "name": "Oba Makarnacilik Sanayi Ve Ticaret A. S.",
+      "price": 8.02,
+      "type": "stock"
+    },
+    {
+      "symbol": "OBASE",
+      "name": "Obase Bilgisayar ve Danismanlik Hizmetleri Ticaret A.S.",
+      "price": 33.98,
+      "type": "stock"
+    },
+    {
+      "symbol": "ODAS",
+      "name": "ODAS Elektrik Uretim Sanayi Ticaret A.S.",
+      "price": 6.01,
+      "type": "stock"
+    },
+    {
+      "symbol": "ODINE",
+      "name": "Odine Solutions Teknoloji Ticaret ve Sanayi AS",
+      "price": 644.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "OFSYM",
+      "name": "Ofis Yem Gida Sanayi ve Ticaret A.S.",
+      "price": 61.4,
+      "type": "stock"
+    },
+    {
+      "symbol": "ONCSM",
+      "name": "ONCOSEM ONKOLOJIK SISTEMLER SANAYI VE TICARET A.S.",
+      "price": 240.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "ONRYT",
+      "name": "Onur Yuksek Teknoloji AS",
+      "price": 58.85,
+      "type": "stock"
+    },
+    {
+      "symbol": "OPK30",
+      "name": "Osmanli Portfoy Ka Katilim 30 Endeksi Hisse Se",
+      "price": 62.58,
+      "type": "etf"
+    },
+    {
+      "symbol": "OPT25",
+      "name": "OSMANLI P BIST TEM 25 END HY BYF",
+      "price": 49.79,
+      "type": "etf"
+    },
+    {
+      "symbol": "OPTGY",
+      "name": "Ottoman Portfolio Management JSC",
+      "price": 161.0,
+      "type": "etf"
+    },
+    {
+      "symbol": "OPTLR",
+      "name": "Osmanli Portfoy Bist 30 Endeksi Hisse Senedi Yogun Borsa Yatir",
+      "price": 54.0,
+      "type": "etf"
+    },
+    {
+      "symbol": "OPX30",
+      "name": "Osmanli Portfoy Bi Osmanli Py/Etf",
+      "price": 77.84,
+      "type": "etf"
+    },
+    {
+      "symbol": "ORCAY",
+      "name": "ORCAY ORTAKOY CAY SANAYI VE TICARET A.S.",
+      "price": 3.4,
+      "type": "stock"
+    },
+    {
+      "symbol": "ORGE",
+      "name": "Orge Enerji Elektrik Taahhut AS",
+      "price": 67.45,
+      "type": "stock"
+    },
+    {
+      "symbol": "ORMA",
+      "name": "Orma Orman Mahsulleri Integre Sanayi ve Ticaret AS",
+      "price": 160.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "OSMEN",
+      "name": "Osmanli Yatirim Menkul Degerler a.s.",
+      "price": 7.44,
+      "type": "stock"
+    },
+    {
+      "symbol": "OSTIM",
+      "name": "Ostim Endustriyel Yatirimlar ve Isletme AS",
+      "price": 2.79,
+      "type": "stock"
+    },
+    {
+      "symbol": "OTKAR",
+      "name": "Otokar Otomotiv ve Savunma Sanayi A.S.",
+      "price": 376.75,
+      "type": "stock"
+    },
+    {
+      "symbol": "OTTO",
+      "name": "OTTO HOLDING A.S",
+      "price": 304.75,
+      "type": "stock"
+    },
+    {
+      "symbol": "OYAKC",
+      "name": "OYAK Cimento Fabrikalari A.S.",
+      "price": 23.16,
+      "type": "stock"
+    },
+    {
+      "symbol": "OYAYO",
+      "name": "Oyak Yatirim Ortakligi Anonim Sirketi",
+      "price": 58.05,
+      "type": "stock"
+    },
+    {
+      "symbol": "OYLUM",
+      "name": "Oylum Sinai Yatirimlar A.S.",
+      "price": 8.05,
+      "type": "stock"
+    },
+    {
+      "symbol": "OYYAT",
+      "name": "Oyak Yatirim Menkul Degerler A.S.",
+      "price": 63.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "OZATD",
+      "name": "OZATA DENIZCILIK SANAYI VE TICARET AS",
+      "price": 217.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "OZGYO",
+      "name": "Ozderici Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 2.04,
+      "type": "etf"
+    },
+    {
+      "symbol": "OZKGY",
+      "name": "Ozak Gayrimenkul Yatirim Ortakligi AS",
+      "price": 13.68,
+      "type": "etf"
+    },
+    {
+      "symbol": "OZRDN",
+      "name": "Ozerden Ambalaj Sanayi A.S.",
+      "price": 34.02,
+      "type": "stock"
+    },
+    {
+      "symbol": "OZSUB",
+      "name": "Ozsu Balik Uretim A.S.",
+      "price": 24.62,
+      "type": "stock"
+    },
+    {
+      "symbol": "OZYSR",
+      "name": "Ozyasar Tel ve Galvanizleme Sanayi Anonim Sirketi",
+      "price": 47.28,
+      "type": "stock"
+    },
+    {
+      "symbol": "PAGYO",
+      "name": "Panora Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 102.1,
+      "type": "etf"
+    },
+    {
+      "symbol": "PAHOL",
+      "name": "PASIFIK HOLDING A.S",
+      "price": 1.47,
+      "type": "stock"
+    },
+    {
+      "symbol": "PAMEL",
+      "name": "Pamel Yenilenebilir Elektrik Uretim AS",
+      "price": 81.75,
+      "type": "stock"
+    },
+    {
+      "symbol": "PAPIL",
+      "name": "PAPILON SAVUNMA TEKNOLOJI VE TICARET A.S",
+      "price": 16.01,
+      "type": "stock"
+    },
+    {
+      "symbol": "PARSN",
+      "name": "Parsan Makina Parcalari Sanayii Anonim Sirketi",
+      "price": 80.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "PASEU",
+      "name": "Pasifik Eurasia Lojistik dis Ticaret AS",
+      "price": 121.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "PATEK",
+      "name": "Pasifik Teknoloji AS",
+      "price": 17.68,
+      "type": "stock"
+    },
+    {
+      "symbol": "PCILT",
+      "name": "PC Iletisim ve Medya Hizmetleri Sanayi Ticaret AS",
+      "price": 30.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "PEKGY",
+      "name": "Peker Gayrimenkul Yatirim Ortakligi AS",
+      "price": 13.59,
+      "type": "etf"
+    },
+    {
+      "symbol": "PENGD",
+      "name": "Penguen Gida Sanayi A.S.",
+      "price": 8.92,
+      "type": "stock"
+    },
+    {
+      "symbol": "PENTA",
+      "name": "Penta Teknoloji Urunleri Dagitim Ticaret AS",
+      "price": 13.32,
+      "type": "stock"
+    },
+    {
+      "symbol": "PETKM",
+      "name": "Petkim Petrokimya Holding Anonim Sirketi",
+      "price": 20.24,
+      "type": "stock"
+    },
+    {
+      "symbol": "PETUN",
+      "name": "Pinar Entegre Et ve Un Sanayii Anonim Sirketi",
+      "price": 11.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "PGSUS",
+      "name": "Pegasus Hava Tasimaciligi Anonim Sirketi",
+      "price": 178.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "PINSU",
+      "name": "Pinar Su ve Icecek Sanayi ve Ticaret A.S.",
+      "price": 10.62,
+      "type": "stock"
+    },
+    {
+      "symbol": "PKART",
+      "name": "Plastikkart Akilli Kart Iletisim Sistemleri Sanayi ve Ticaret A.S.",
+      "price": 75.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "PKENT",
+      "name": "Petrokent Turizm A.S.",
+      "price": 155.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "PLTUR",
+      "name": "PLATFORM TURIZM TASIMACILIK GIDA INSAAT TEMIZLIK HIZMETLERI SANAYI VE TICARET A.S.",
+      "price": 23.76,
+      "type": "stock"
+    },
+    {
+      "symbol": "PNLSN",
+      "name": "Panelsan Cati Cephe Sistemleri Sanayi ve Ticaret AS",
+      "price": 50.65,
+      "type": "stock"
+    },
+    {
+      "symbol": "PNSUT",
+      "name": "Pinar Sut Mamulleri Sanayii A.S.",
+      "price": 10.88,
+      "type": "stock"
+    },
+    {
+      "symbol": "POLHO",
+      "name": "Polisan Holding AS",
+      "price": 22.16,
+      "type": "stock"
+    },
+    {
+      "symbol": "POLTK",
+      "name": "Politeknik Metal Sanayi ve Ticaret AS",
+      "price": 5025.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "PRDGS",
+      "name": "PARDUS GIRISIM SERMAYESI YATIRIM ORTAKLIGI A.S.",
+      "price": 6.66,
+      "type": "stock"
+    },
+    {
+      "symbol": "PRKAB",
+      "name": "Turk Prysmian Kablo ve Sistemleri A.S.",
+      "price": 40.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "PRKME",
+      "name": "Park Elektrik Uretim Madencilik Sanayi ve Ticaret A.S.",
+      "price": 18.35,
+      "type": "stock"
+    },
+    {
+      "symbol": "PRZMA",
+      "name": "Prizma Pres Matbaacilik Yayincilik Sanayi ve Ticaret AS",
+      "price": 15.78,
+      "type": "stock"
+    },
+    {
+      "symbol": "PSDTC",
+      "name": "Pergamon Status Dis Ticaret A.S.",
+      "price": 120.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "PSGYO",
+      "name": "Pasifik Gayrimenkul Yatirim Ortakligi AS",
+      "price": 2.18,
+      "type": "etf"
+    },
+    {
+      "symbol": "QNBFK",
+      "name": "QNB Finansal Kiralama A.S.",
+      "price": 55.95,
+      "type": "stock"
+    },
+    {
+      "symbol": "QNBTR",
+      "name": "QNB Bank AS",
+      "price": 278.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "QTEMZ",
+      "name": "DJIST - Dow Jones Istanbul 20",
+      "price": 316.1,
+      "type": "etf"
+    },
+    {
+      "symbol": "QUAGR",
+      "name": "Qua Granite Hayal Yapi ve Urunleri Sanayi Ticaret AS",
+      "price": 3.06,
+      "type": "stock"
+    },
+    {
+      "symbol": "RALYH",
+      "name": "Ral Yatirim Holding A.S.",
+      "price": 136.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "RAYSG",
+      "name": "Ray Sigorta A.S.",
+      "price": 201.9,
+      "type": "stock"
+    },
+    {
+      "symbol": "REEDR",
+      "name": "Reeder Teknoloji Sanayi ve Ticaret A.S.",
+      "price": 8.12,
+      "type": "stock"
+    },
+    {
+      "symbol": "RGYAS",
+      "name": "Ronesans Gayrimenkul Yatirim A.S.",
+      "price": 159.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "RNPOL",
+      "name": "Rainbow Polikarbonat Sanayi Ticaret Anonim Sirketi",
+      "price": 1.87,
+      "type": "stock"
+    },
+    {
+      "symbol": "RODRG",
+      "name": "Rodrigo Tekstil Sanayi ve Ticaret AS",
+      "price": 21.04,
+      "type": "stock"
+    },
+    {
+      "symbol": "RTALB",
+      "name": "RTA Laboratuvarlari Biyolojik Urunler Ilac ve Makina Sanayi Ticaret A.S.",
+      "price": 3.78,
+      "type": "stock"
+    },
+    {
+      "symbol": "RUBNS",
+      "name": "Rubenis Tekstil Sanayi Ticaret AS",
+      "price": 34.48,
+      "type": "stock"
+    },
+    {
+      "symbol": "RUZYE",
+      "name": "Ruzy Madencilik Ve Enerji Yatirimlari Sanayi Ve Ticaret A.S.",
+      "price": 12.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "RYGYO",
+      "name": "Reysas Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 31.56,
+      "type": "etf"
+    },
+    {
+      "symbol": "RYSAS",
+      "name": "Reysas Tasimacilik ve Lojistik Ticaret Anonim Sirketi",
+      "price": 17.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "SAFKR",
+      "name": "Safkar Ege Cooling Air Conditioning Cold Air Tes.Ihr.Ith.A.S",
+      "price": 25.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "SAHOL",
+      "name": "Haci Omer Sabanci Holding A.S.",
+      "price": 93.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "SAMAT",
+      "name": "Saray Matbaacilik Kagitcilik Kirtasiyecilik Ticaret Ve Sanayi A.S.",
+      "price": 5.35,
+      "type": "stock"
+    },
+    {
+      "symbol": "SANEL",
+      "name": "San-El Muhendislik Elektrik Taahhut Sanayi ve Ticaret A.S.",
+      "price": 35.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "SANFM",
+      "name": "SANIFOAM ENDUSTRI VE TUKETIM URUNLERI SANAYI TICARET A.S.",
+      "price": 7.09,
+      "type": "stock"
+    },
+    {
+      "symbol": "SANKO",
+      "name": "Sanko Pazarlama Ithalat Ihracat Anonim Sirketi",
+      "price": 20.08,
+      "type": "stock"
+    },
+    {
+      "symbol": "SARKY",
+      "name": "Sarkuysan Elektrolitik Bakir Sanayi ve Ticaret A.S.",
+      "price": 29.44,
+      "type": "stock"
+    },
+    {
+      "symbol": "SASA",
+      "name": "Sasa Polyester Sanayi A.S.",
+      "price": 2.41,
+      "type": "stock"
+    },
+    {
+      "symbol": "SAYAS",
+      "name": "Say Yenilenebilir Enerji Ekipmanlari Sanayi ve Ticaret A.S.",
+      "price": 43.54,
+      "type": "stock"
+    },
+    {
+      "symbol": "SDTTR",
+      "name": "SDT Uzay ve Savunma Teknolojileri A.S.",
+      "price": 225.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "SEGMN",
+      "name": "Segmen Kardesler Gida Uretim ve Ambalaj Sanayi AS",
+      "price": 56.65,
+      "type": "stock"
+    },
+    {
+      "symbol": "SEGYO",
+      "name": "SEKER GAYRIMENKUL YATIRIM ORTAKLIGI A.S.",
+      "price": 4.59,
+      "type": "stock"
+    },
+    {
+      "symbol": "SEKFK",
+      "name": "Seker Finansal Kiralama A.S.",
+      "price": 10.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "SEKUR",
+      "name": "Sekuro Plastik Ambalaj Sanayi A.S.",
+      "price": 6.07,
+      "type": "stock"
+    },
+    {
+      "symbol": "SELEC",
+      "name": "Selcuk Ecza Deposu Ticaret ve Sanayi A.S.",
+      "price": 80.05,
+      "type": "stock"
+    },
+    {
+      "symbol": "SELVA",
+      "name": "SELVA GIDA SANAYI A.S.",
+      "price": 2.17,
+      "type": "stock"
+    },
+    {
+      "symbol": "SERNT",
+      "name": "Seranit Granit Seramik Sanayi ve Ticaret A.S.",
+      "price": 7.98,
+      "type": "stock"
+    },
+    {
+      "symbol": "SEYKM",
+      "name": "Seyitler Kimya Sanayi AS",
+      "price": 4.52,
+      "type": "stock"
+    },
+    {
+      "symbol": "SILVR",
+      "name": "Silverline Endustri ve Ticaret A.S.",
+      "price": 2.52,
+      "type": "stock"
+    },
+    {
+      "symbol": "SISE",
+      "name": "Turkiye Sise ve Cam Fabrikalari A.S.",
+      "price": 43.82,
+      "type": "stock"
+    },
+    {
+      "symbol": "SKBNK",
+      "name": "Sekerbank T.A.S.",
+      "price": 10.83,
+      "type": "stock"
+    },
+    {
+      "symbol": "SKTAS",
+      "name": "Soktas Tekstil Sanayi ve Ticaret A.S.",
+      "price": 3.21,
+      "type": "stock"
+    },
+    {
+      "symbol": "SKYLP",
+      "name": "Skyalp Finansal Teknolojiler ve Danismanlik A.S",
+      "price": 255.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "SKYMD",
+      "name": "Seker Yatirim Menkul Degerler A.S.",
+      "price": 12.04,
+      "type": "stock"
+    },
+    {
+      "symbol": "SMART",
+      "name": "Smartiks Yazilim AS",
+      "price": 33.84,
+      "type": "stock"
+    },
+    {
+      "symbol": "SMRTG",
+      "name": "Smart Gunes Enerjisi Teknolojileri Arastirma Gelistirme Uretim Sanayi ve Ticaret",
+      "price": 7.19,
+      "type": "stock"
+    },
+    {
+      "symbol": "SMRVA",
+      "name": "Sumer Varlik Yonetim A.S.",
+      "price": 60.9,
+      "type": "stock"
+    },
+    {
+      "symbol": "SNGYO",
+      "name": "Sinpas Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 3.89,
+      "type": "etf"
+    },
+    {
+      "symbol": "SNICA",
+      "name": "Sanica Isi Sanayi A.S.",
+      "price": 3.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "SNPAM",
+      "name": "Sonmez Pamuklu Sanayii A.S.",
+      "price": 21.32,
+      "type": "stock"
+    },
+    {
+      "symbol": "SODSN",
+      "name": "Sodas Sodyum Sanayii AS",
+      "price": 9.84,
+      "type": "stock"
+    },
+    {
+      "symbol": "SOKE",
+      "name": "Soke Degirmencilik Sanayi ve Ticaret AS",
+      "price": 15.24,
+      "type": "stock"
+    },
+    {
+      "symbol": "SOKM",
+      "name": "Sok Marketler Ticaret AS",
+      "price": 53.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "SONME",
+      "name": "Soenmez Filament Sentetik Iplik ve Elyaf Sanayi Anonim Sirketi",
+      "price": 148.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "SRVGY",
+      "name": "Servet Gayrimenkul Yatirim Ortakligi AS",
+      "price": 3.29,
+      "type": "stock"
+    },
+    {
+      "symbol": "SUMAS",
+      "name": "Sumas Suni Tahta ve Mobilya Sanayii AS",
+      "price": 261.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "SUNTK",
+      "name": "Sun Tekstil Sanayi ve Ticaret A.S.",
+      "price": 35.34,
+      "type": "stock"
+    },
+    {
+      "symbol": "SURGY",
+      "name": "Sur Tatil Evleri Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 57.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "SUWEN",
+      "name": "Suwen Tekstil San. Paz. AS",
+      "price": 9.11,
+      "type": "stock"
+    },
+    {
+      "symbol": "SVGYO",
+      "name": "Savur Gayrimenkul Yatirim Ortakligi A.S",
+      "price": 8.54,
+      "type": "etf"
+    },
+    {
+      "symbol": "TABGD",
+      "name": "TAB Gida Sanayi ve Ticaret A.S.",
+      "price": 249.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "TARKM",
+      "name": "Tarkim Bitki Koruma Sanayi ve Ticaret A.S.",
+      "price": 379.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "TATEN",
+      "name": "Tatlipinar Enerji Uretim A.S.",
+      "price": 12.15,
+      "type": "stock"
+    },
+    {
+      "symbol": "TATGD",
+      "name": "Tat Gida Sanayi A.S.",
+      "price": 16.61,
+      "type": "stock"
+    },
+    {
+      "symbol": "TAVHL",
+      "name": "TAV Havalimanlari Holding A.S.",
+      "price": 292.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "TBORG",
+      "name": "Turk Tuborg Bira ve Malt Sanayii A.S.",
+      "price": 149.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "TCELL",
+      "name": "Turkcell Iletisim Hizmetleri A.S.",
+      "price": 108.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "TCKRC",
+      "name": "Kirac Galvaniz Telekominikasyon Metal Makine Insaat Elektrik Sanayi Ve Ticaret AS",
+      "price": 94.85,
+      "type": "stock"
+    },
+    {
+      "symbol": "TDGYO",
+      "name": "Trend Gayrimenkul Yatirim Ortakligi AS",
+      "price": 18.05,
+      "type": "stock"
+    },
+    {
+      "symbol": "TEHOL",
+      "name": "Tera Yatirim Teknoloji Holding A.S.",
+      "price": 17.1,
+      "type": "etf"
+    },
+    {
+      "symbol": "TEKTU",
+      "name": "Tek-Art Insaat Ticaret Turizm Sanayi ve Yatirimlar Anonim Sirketi",
+      "price": 8.89,
+      "type": "stock"
+    },
+    {
+      "symbol": "TERA",
+      "name": "Tera Yatirim Menkul Degerler AS",
+      "price": 318.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "TEZOL",
+      "name": "Europap Tezol Paper Industry and Trade Inc.",
+      "price": 16.37,
+      "type": "stock"
+    },
+    {
+      "symbol": "TGSAS",
+      "name": "TGS Dis Ticaret AS",
+      "price": 171.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "THYAO",
+      "name": "Turk Hava Yollari A.O.",
+      "price": 290.75,
+      "type": "stock"
+    },
+    {
+      "symbol": "TKFEN",
+      "name": "Tekfen Holding Anonim Sirketi",
+      "price": 80.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "TKNSA",
+      "name": "Teknosa Ic ve Dis Ticaret AS",
+      "price": 22.04,
+      "type": "stock"
+    },
+    {
+      "symbol": "TLMAN",
+      "name": "Trabzon Liman Isletmeciligi AS",
+      "price": 88.25,
+      "type": "stock"
+    },
+    {
+      "symbol": "TMPOL",
+      "name": "Temapol Polimer Plastik Ve Insaat Sanayi Ticaret A..S",
+      "price": 558.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "TMSN",
+      "name": "Tumosan Motor Ve Traktor Sanayi AS",
+      "price": 107.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "TNZTP",
+      "name": "TAPDI OKSIJEN OZEL SAGLIK VE EGITIM HIZMETLERI SANAYI TICARET A.S.",
+      "price": 22.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "TOASO",
+      "name": "Tofas Turk Otomobil Fabrikasi A.S.",
+      "price": 308.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "TRALT",
+      "name": "Turk Altin Isletmeleri A.S.",
+      "price": 49.08,
+      "type": "stock"
+    },
+    {
+      "symbol": "TRCAS",
+      "name": "Turcas Holding A.S.",
+      "price": 41.76,
+      "type": "stock"
+    },
+    {
+      "symbol": "TRENJ",
+      "name": "TR Dogal Enerji Kaynaklari Arastirma ve Uretim Anonim Sirketi",
+      "price": 100.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "TRGYO",
+      "name": "Torunlar Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 85.65,
+      "type": "etf"
+    },
+    {
+      "symbol": "TRHOL",
+      "name": "Tera Financial Investments Holding A.S.",
+      "price": 810.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "TRILC",
+      "name": "Turk Ilac ve Serum Sanayi AS",
+      "price": 15.89,
+      "type": "stock"
+    },
+    {
+      "symbol": "TRMET",
+      "name": "TR Anadolu Metal Madencilik Isletmeleri Anonim Sirketi",
+      "price": 142.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "TSGYO",
+      "name": "TSKB Gayrimenkul Yatirim Ortakligi Anonim Sirketi",
+      "price": 6.9,
+      "type": "etf"
+    },
+    {
+      "symbol": "TSKB",
+      "name": "Turkiye Sinai Kalkinma Bankasi A.S.",
+      "price": 12.38,
+      "type": "stock"
+    },
+    {
+      "symbol": "TSPOR",
+      "name": "Trabzonspor Sportif Yatirim ve Futbol Isletmeciligi Ticaret A.S.",
+      "price": 0.96,
+      "type": "stock"
+    },
+    {
+      "symbol": "TTKOM",
+      "name": "Turk Telekomunikasyon A.S.",
+      "price": 59.25,
+      "type": "stock"
+    },
+    {
+      "symbol": "TTRAK",
+      "name": "Turk Traktor ve Ziraat Makineleri A.S.",
+      "price": 458.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "TUCLK",
+      "name": "Tugcelik Aluminyum ve Metal Mamulleri Sanayi ve Ticaret A.S.",
+      "price": 4.6,
+      "type": "stock"
+    },
+    {
+      "symbol": "TUKAS",
+      "name": "Tukas Gida Sanayi ve Ticaret Anonim Sirketi",
+      "price": 2.33,
+      "type": "stock"
+    },
+    {
+      "symbol": "TUPRS",
+      "name": "Turkiye Petrol Rafinerileri A.S.",
+      "price": 254.75,
+      "type": "stock"
+    },
+    {
+      "symbol": "TUREX",
+      "name": "TUREKS TURIZM TASIMACILIK A.S.",
+      "price": 7.73,
+      "type": "stock"
+    },
+    {
+      "symbol": "TURGG",
+      "name": "TURKER PROJE GAYRIMENKUL VE YATIRIM GELISTIRME A.S.",
+      "price": 27.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "TURSG",
+      "name": "Turkiye Sigorta A.S.",
+      "price": 13.63,
+      "type": "stock"
+    },
+    {
+      "symbol": "UCAYM",
+      "name": "Ucay Muhendislik Enerji ve Iklimlendirme Teknolojileri",
+      "price": 26.22,
+      "type": "stock"
+    },
+    {
+      "symbol": "UFUK",
+      "name": "Ufuk Yatirim Yonetim Ve Gayrimenkul A.S.",
+      "price": 1526.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "ULAS",
+      "name": "Ulaslar Turizm Energi Tarim Gida ve Insaat Yatirimlari A.S.",
+      "price": 33.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "ULKER",
+      "name": "Ulker Biskuvi Sanayi A.S.",
+      "price": 112.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "ULUFA",
+      "name": "Ulusal Faktoring A.S.",
+      "price": 4.26,
+      "type": "stock"
+    },
+    {
+      "symbol": "ULUSE",
+      "name": "Ulusoy Elektrik Imalat Taahhut ve Ticaret AS",
+      "price": 181.8,
+      "type": "stock"
+    },
+    {
+      "symbol": "ULUUN",
+      "name": "Ulusoy Un Sanayi ve Ticaret AS",
+      "price": 8.08,
+      "type": "stock"
+    },
+    {
+      "symbol": "UNLU",
+      "name": "Unlu Yatirim Holding A.S.",
+      "price": 13.87,
+      "type": "stock"
+    },
+    {
+      "symbol": "USAK",
+      "name": "Usak Seramik Sanayii A.S.",
+      "price": 1.65,
+      "type": "stock"
+    },
+    {
+      "symbol": "USDTR",
+      "name": "Finans Asset Management U.S.A. Treasury Bills Dolar ETF",
+      "price": 4147.0,
+      "type": "etf"
+    },
+    {
+      "symbol": "VAKBN",
+      "name": "Turkiye Vakiflar Bankasi Turk Anonim Ortakligi",
+      "price": 32.44,
+      "type": "stock"
+    },
+    {
+      "symbol": "VAKFA",
+      "name": "Vakif Faktoring A.S.",
+      "price": 12.27,
+      "type": "stock"
+    },
+    {
+      "symbol": "VAKFN",
+      "name": "Vakif Finansal Kiralama AS",
+      "price": 1.87,
+      "type": "stock"
+    },
+    {
+      "symbol": "VAKKO",
+      "name": "Vakko Tekstil ve Hazir Giyim Sanayi Isletmeleri A.S.",
+      "price": 75.5,
+      "type": "stock"
+    },
+    {
+      "symbol": "VANGD",
+      "name": "Vanet Gida Sanayi Ic ve Dis Ticaret AS",
+      "price": 67.9,
+      "type": "stock"
+    },
+    {
+      "symbol": "VBTYZ",
+      "name": "VBT Yazilim AS",
+      "price": 21.56,
+      "type": "stock"
+    },
+    {
+      "symbol": "VERTU",
+      "name": "Verusaturk Girisim Sermayesi Yatirim Ortakligi AS",
+      "price": 38.64,
+      "type": "etf"
+    },
+    {
+      "symbol": "VERUS",
+      "name": "Verusa Holding AS",
+      "price": 360.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "VESBE",
+      "name": "Vestel Beyaz Esya Sanayi ve Ticaret A.S.",
+      "price": 7.31,
+      "type": "stock"
+    },
+    {
+      "symbol": "VESTL",
+      "name": "Vestel Elektronik Sanayi ve Ticaret A.S.",
+      "price": 28.86,
+      "type": "stock"
+    },
+    {
+      "symbol": "VKFYO",
+      "name": "Vakif Menkul Kiymet Yatirim Ortakligi A.S.",
+      "price": 36.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "VKGYO",
+      "name": "Vakif Gayrimenkul Yatirim Ortakligi Anonim Sirketi",
+      "price": 2.74,
+      "type": "etf"
+    },
+    {
+      "symbol": "VKING",
+      "name": "Viking Kagit ve Seluloz A.S.",
+      "price": 26.36,
+      "type": "stock"
+    },
+    {
+      "symbol": "VRGYO",
+      "name": "Vera Konsept Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 2.26,
+      "type": "stock"
+    },
+    {
+      "symbol": "VSNMD",
+      "name": "Visne Madencilik Uretim Sanayi ve Ticaret AS",
+      "price": 76.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "YAPRK",
+      "name": "Yaprak Sut ve Besi Ciftikleri Sanayi Ve Ticaret AS",
+      "price": 16.72,
+      "type": "stock"
+    },
+    {
+      "symbol": "YATAS",
+      "name": "Yatas Yatak ve Yorgan Sanayi ve Ticaret Anonim Sirketi",
+      "price": 43.2,
+      "type": "stock"
+    },
+    {
+      "symbol": "YAYLA",
+      "name": "Yayla Enerji Uretim Turizm ve Insaat Ticaret AS",
+      "price": 23.54,
+      "type": "stock"
+    },
+    {
+      "symbol": "YBTAS",
+      "name": "Yibitas Yozgat Isci Birligi Insaat Malzemeleri Ticaret Ve San",
+      "price": 19.59,
+      "type": "stock"
+    },
+    {
+      "symbol": "YEOTK",
+      "name": "YEO Teknoloji Enerji ve Endustri A.S.",
+      "price": 49.86,
+      "type": "stock"
+    },
+    {
+      "symbol": "YESIL",
+      "name": "Yesil Yatirim Holding AS",
+      "price": 1.62,
+      "type": "stock"
+    },
+    {
+      "symbol": "YGGYO",
+      "name": "Yeni Gimat Gayrimenkul Yatirim Ortakligi AS",
+      "price": 205.0,
+      "type": "etf"
+    },
+    {
+      "symbol": "YIGIT",
+      "name": "Yigit Aku Malzemeleri Nakliyat Turizm Insaat Sanayi Ve Ticaret",
+      "price": 22.3,
+      "type": "stock"
+    },
+    {
+      "symbol": "YKBNK",
+      "name": "Yapi ve Kredi Bankasi A.S.",
+      "price": 35.44,
+      "type": "stock"
+    },
+    {
+      "symbol": "YKSLN",
+      "name": "Yukselen Celik AS",
+      "price": 3.29,
+      "type": "stock"
+    },
+    {
+      "symbol": "YONGA",
+      "name": "Yonga Mobilya SANAYI ve TICARET AS",
+      "price": 57.0,
+      "type": "stock"
+    },
+    {
+      "symbol": "YUNSA",
+      "name": "Yunsa Yunlu Sanayi ve Ticaret A.S.",
+      "price": 8.32,
+      "type": "stock"
+    },
+    {
+      "symbol": "YYAPI",
+      "name": "Yesil Yapi Endustrisi A.S.",
+      "price": 1.66,
+      "type": "stock"
+    },
+    {
+      "symbol": "YYLGD",
+      "name": "Yayla Agro Gida Sanayi ve Nakliyat AS",
+      "price": 11.14,
+      "type": "stock"
+    },
+    {
+      "symbol": "Z30KE",
+      "name": "Ziraat Portfoy Katilim 30 Esit Agirlikli Endeksi Hisse Senedi Yogun Borsa Yatirim Fonu Capitalisation Units",
+      "price": 146.35,
+      "type": "etf"
+    },
+    {
+      "symbol": "Z30KP",
+      "name": "Ziraat Portfoy Katilim 30 Endeksi Hisse Senedi Yogun Borsa Yatirim Fonu ETF Capitalisation Units",
+      "price": 222.9,
+      "type": "etf"
+    },
+    {
+      "symbol": "ZEDUR",
+      "name": "Zedur Enerji ElekTrik Uretim A.S.",
+      "price": 8.07,
+      "type": "stock"
+    },
+    {
+      "symbol": "ZERGY",
+      "name": "Zeray Gayrimenkul Yatirim Ortakligi AS",
+      "price": 21.9,
+      "type": "stock"
+    },
+    {
+      "symbol": "ZGOLD",
+      "name": "Ziraat Portfolio Gold Participation ETF",
+      "price": 774.0,
+      "type": "etf"
+    },
+    {
+      "symbol": "ZGYO",
+      "name": "Z Gayrimenkul Yatirim Ortakligi A.S.",
+      "price": 24.7,
+      "type": "stock"
+    },
+    {
+      "symbol": "ZOREN",
+      "name": "Zorlu Enerji Elektrik Uretim A.S.",
+      "price": 2.9,
+      "type": "stock"
+    },
+    {
+      "symbol": "ZPBDL",
+      "name": "ZIRAAT PORTFOY BIST BANKA DISI LIKIT 10 ENDEKSI HISSE SENEDI YOGUN BORSA YATIRIM FONU Capitalisation Units",
+      "price": 228.9,
+      "type": "etf"
+    },
+    {
+      "symbol": "ZPLIB",
+      "name": "Ziraat Portfoy BIST Likit Banka Endeksi Hisse Senedi Yogun Borsa Yatirim Fonu",
+      "price": 195.05,
+      "type": "etf"
+    },
+    {
+      "symbol": "ZPT10",
+      "name": "ZIRAAT PORTFOY YILDIZ PAZAR TEKNOLOJI VE ILETISIM 10 ENDEKSI HISSE SENEDI YOGUN BORSA YATIRIM FONU Units Capitalisation",
+      "price": 99.88,
+      "type": "etf"
+    },
+    {
+      "symbol": "ZRE20",
+      "name": "ZIRAAT PORTFOY RISK ESIT BANKA DISI 20 ENDEKSI HISSE SENEDI YOGUN BORSA YATIRIM FONU Units Capitalisation",
+      "price": 163.25,
+      "type": "etf"
+    },
+    {
+      "symbol": "ZRGYO",
+      "name": "Ziraat Gayrimenkul Yatirim Ortakligi AS",
+      "price": 21.64,
+      "type": "etf"
+    },
+    {
+      "symbol": "ZSR25",
+      "name": "ZIRAAT PORTFOY BIST SURDURULEBILIRLIK 25 ENDEKSI HISSE SENEDI YOGUN BORSA YATIRIM FONU Units -- Distribution",
+      "price": 46.25,
+      "type": "etf"
+    }
+  ]
+}

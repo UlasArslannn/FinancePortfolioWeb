@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertAssetSchema, insertTransactionSchema, insertIncomeSchema, insertExpenseSchema, insertRecurringIncomeSchema, insertRecurringExpenseSchema } from "@shared/schema";
-import { updateAllAssetPrices, fetchSingleAssetPrice, fetchExchangeRates, searchBESFunds, getBesCacheInfo, loadBesFundsFromFile, loadBistStocksFromFile } from "./services/priceService";
+import { updateAllAssetPrices, fetchSingleAssetPrice, fetchExchangeRates, searchBESFunds, getBesCacheInfo, loadBesFundsFromFile, loadBistStocksFromFile, searchBISTLocal, rebuildBesFundCache } from "./services/priceService";
 import { execFile } from "child_process";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -238,6 +238,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
     });
   });
 
+  // TEFAS üzerinden BES cache'i yeniden inşa et
+  app.post("/api/bes/rebuild", async (_req, res) => {
+    res.json({ message: "BES cache yeniden inşa ediliyor..." });
+    rebuildBesFundCache().catch((e) => console.error("[BES rebuild] Failed:", e));
+  });
+
   // Trigger Python scraper to rebuild the cache (Fix #12: execFile instead of exec)
   app.post("/api/bes/rescrape", (req, res) => {
     const scraperPath = join(__routesDirname, "tefas_scraper.py");
@@ -281,37 +287,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
             exchange: "Crypto",
           }));
         }
+      } else if (marketStr === "BIST") {
+        // BIST için lokal cache kullan (bist_stocks.json)
+        results = searchBISTLocal(query, typeStr);
       } else {
-        // Yahoo Finance search for stocks/ETFs
-        // For BIST, append .IS so Yahoo Finance returns Turkish stocks correctly
-        const yahooQuery = marketStr === "BIST" ? `${query}.IS` : query;
-        const yahooUrl = `https://query2.finance.yahoo.com/v1/finance/search?q=${encodeURIComponent(yahooQuery)}&quotesCount=20&newsCount=0&listsCount=0`;
-        console.log(`[stocks/search] market=${marketStr} query="${query}" yahooQuery="${yahooQuery}" url=${yahooUrl}`);
+        // Yahoo Finance search for US/international stocks
+        const yahooUrl = `https://query2.finance.yahoo.com/v1/finance/search?q=${encodeURIComponent(query)}&quotesCount=20&newsCount=0&listsCount=0`;
         const response = await fetch(yahooUrl,
           { headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" } }
         );
-        console.log(`[stocks/search] Yahoo response status: ${response.status}`);
         if (response.ok) {
           const data = await response.json();
           const quotes: any[] = data.quotes || [];
-          console.log(`[stocks/search] Total quotes from Yahoo: ${quotes.length}`, quotes.slice(0, 3).map((q: any) => ({ symbol: q.symbol, exchange: q.exchange })));
           const US_EXCHANGES = ["NYQ", "NMS", "NGM", "NCM", "ASE", "PCX", "BTS"];
-
           results = quotes
             .filter((q: any) => {
-              if (marketStr === "BIST") return q.symbol?.endsWith(".IS");
               if (marketStr === "US") return US_EXCHANGES.includes(q.exchange);
               return true;
             })
             .slice(0, 10)
             .map((q: any) => ({
-              symbol: marketStr === "BIST" ? q.symbol?.replace(".IS", "") : q.symbol,
+              symbol: q.symbol,
               name: q.shortname || q.longname || q.symbol,
               exchange: q.exchDisp || q.exchange || "",
             }));
-          console.log(`[stocks/search] After filter: ${results.length} results`);
-        } else {
-          console.log(`[stocks/search] Yahoo error body:`, await response.text().catch(() => ""));
         }
       }
 
