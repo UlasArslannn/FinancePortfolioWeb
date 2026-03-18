@@ -2,8 +2,8 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertAssetSchema, insertTransactionSchema, insertIncomeSchema, insertExpenseSchema, insertRecurringIncomeSchema, insertRecurringExpenseSchema } from "@shared/schema";
-import { updateAllAssetPrices, fetchSingleAssetPrice, fetchExchangeRates, searchBESFunds, getBesCacheInfo, loadBesFundsFromFile } from "./services/priceService";
-import { exec } from "child_process";
+import { updateAllAssetPrices, fetchSingleAssetPrice, fetchExchangeRates, searchBESFunds, getBesCacheInfo, loadBesFundsFromFile, loadBistStocksFromFile } from "./services/priceService";
+import { execFile } from "child_process";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 const __routesDirname = dirname(fileURLToPath(import.meta.url));
@@ -159,10 +159,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Price update routes
   app.post("/api/prices/update", async (req, res) => {
     try {
+      // Önce BIST fiyatlarını TradingView'dan tazele
+      await new Promise<void>((resolve) => {
+        const scraperPath = join(__routesDirname, "bist_scraper.py");
+        execFile("python", [scraperPath], { timeout: 60 * 1000 }, (err, stdout) => {
+          if (err) {
+            console.warn("[prices/update] BIST scraper failed, devam ediliyor:", err.message);
+          } else {
+            console.log("[prices/update] BIST scraper:", stdout.trim().split("\n").slice(-1)[0]);
+            loadBistStocksFromFile();
+          }
+          resolve();
+        });
+      });
+
       const results = await updateAllAssetPrices();
       const successful = results.filter(r => r.success).length;
       const failed = results.filter(r => !r.success).length;
-      
+
       res.json({
         message: `Fiyatlar güncellendi: ${successful} başarılı, ${failed} başarısız`,
         results,
@@ -178,21 +192,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { symbol } = req.params;
       const { type, market } = req.query;
-      
+
       if (!type || !market) {
         return res.status(400).json({ error: "type and market query params required" });
       }
-      
+
       const price = await fetchSingleAssetPrice(
         symbol,
         type as string,
         market as string
       );
-      
+
       if (price === null) {
         return res.status(404).json({ error: "Price not found" });
       }
-      
+
       res.json({ symbol, price, fetchedAt: new Date().toISOString() });
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch price" });
@@ -224,19 +238,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
     });
   });
 
-  // Trigger Python scraper to rebuild the cache (runs in background)
+  // Trigger Python scraper to rebuild the cache (Fix #12: execFile instead of exec)
   app.post("/api/bes/rescrape", (req, res) => {
     const scraperPath = join(__routesDirname, "tefas_scraper.py");
-    exec(`python "${scraperPath}"`, { timeout: 5 * 60 * 1000 }, (err, stdout, stderr) => {
+    execFile("python", [scraperPath], { timeout: 5 * 60 * 1000 }, (err, stdout, stderr) => {
       if (err) {
-        console.error("[bes/rescrape] scraper error:", stderr);
+        console.error("[bist/rescrape] scraper error:", stderr);
         return;
       }
       console.log("[bes/rescrape] scraper done:", stdout.trim().split("\n").slice(-2).join(" | "));
-      // Reload the cache into memory
       loadBesFundsFromFile();
     });
-    res.json({ message: "Scraper started. Check /api/bes/cache-status for progress." });
+    res.json({ message: "BIST scraper başlatıldı." });
   });
 
   // Stock/crypto search endpoint
@@ -281,7 +294,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         if (response.ok) {
           const data = await response.json();
           const quotes: any[] = data.quotes || [];
-          console.log(`[stocks/search] Total quotes from Yahoo: ${quotes.length}`, quotes.slice(0,3).map((q:any) => ({symbol: q.symbol, exchange: q.exchange})));
+          console.log(`[stocks/search] Total quotes from Yahoo: ${quotes.length}`, quotes.slice(0, 3).map((q: any) => ({ symbol: q.symbol, exchange: q.exchange })));
           const US_EXCHANGES = ["NYQ", "NMS", "NGM", "NCM", "ASE", "PCX", "BTS"];
 
           results = quotes
