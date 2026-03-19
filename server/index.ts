@@ -1,8 +1,14 @@
 import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
+import { execFile } from "child_process";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { loadBesFundsFromFile, rebuildBesFundCache, loadBistStocksFromFile } from "./services/priceService";
+
+const __filename2 = fileURLToPath(import.meta.url);
+const __dirname2 = dirname(__filename2);
 
 const app = express();
 
@@ -49,7 +55,7 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  // Load BIST stocks from local JSON (bist_scraper.py tarafından doldurulur)
+  // Mevcut cache'i yükle
   loadBistStocksFromFile();
 
   // Load BES fund cache from local JSON; rebuild from TEFAS if empty

@@ -96,11 +96,11 @@ export function AssetTable({ assets }: AssetTableProps) {
     },
   });
 
-  const formatCurrency = (amount: number | undefined, currency: string) => {
+  const formatCurrency = (amount: number | undefined, currency: string, decimals: number = 2) => {
     if (hideAmounts) return "****";
     const symbols: Record<string, string> = { TRY: "₺", USD: "$", EUR: "€" };
     const value = amount ?? 0;
-    return `${symbols[currency] || ""}${value.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    return `${symbols[currency] || ""}${value.toLocaleString("tr-TR", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}`;
   };
 
   const formatPercent = (percent: number) => `${percent >= 0 ? "+" : ""}${percent.toFixed(2)}%`;
@@ -184,10 +184,10 @@ export function AssetTable({ assets }: AssetTableProps) {
                       {group.totalQuantity.toLocaleString("tr-TR", { maximumFractionDigits: 8 })}
                     </TableCell>
                     <TableCell className="text-right">
-                      {formatCurrency(group.weightedAvgPrice, group.currency)}
+                      {formatCurrency(group.weightedAvgPrice, group.currency, group.type === "bes" ? 6 : 2)}
                     </TableCell>
                     <TableCell className="text-right">
-                      {formatCurrency(group.currentPrice, group.currency)}
+                      {formatCurrency(group.currentPrice, group.currency, group.type === "bes" ? 6 : 2)}
                     </TableCell>
                     <TableCell className="text-right font-medium">
                       {formatCurrency(group.totalValue, group.currency)}
@@ -242,10 +242,10 @@ export function AssetTable({ assets }: AssetTableProps) {
                         {Number(asset.quantity).toLocaleString("tr-TR", { maximumFractionDigits: 8 })}
                       </TableCell>
                       <TableCell className="text-right text-sm">
-                        {formatCurrency(Number(asset.averagePrice), asset.currency)}
+                        {formatCurrency(Number(asset.averagePrice), asset.currency, asset.type === "bes" ? 6 : 2)}
                       </TableCell>
                       <TableCell className="text-right text-sm">
-                        {formatCurrency(Number(asset.currentPrice), asset.currency)}
+                        {formatCurrency(Number(asset.currentPrice), asset.currency, asset.type === "bes" ? 6 : 2)}
                       </TableCell>
                       <TableCell className="text-right text-sm font-medium">
                         {formatCurrency(asset.totalValue, asset.currency)}

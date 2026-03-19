@@ -23,8 +23,8 @@ export const assets = pgTable("assets", {
   symbol: text("symbol").notNull(), // Ticker/Symbol (örn: THYAO, AAPL, BTC)
   market: text("market").notNull(), // BIST, US, Diğer
   quantity: decimal("quantity", { precision: 18, scale: 8 }).notNull().default("0"), // Miktar
-  averagePrice: decimal("average_price", { precision: 18, scale: 2 }).notNull(), // Ortalama alış fiyatı
-  currentPrice: decimal("current_price", { precision: 18, scale: 2 }).notNull(), // Güncel fiyat
+  averagePrice: decimal("average_price", { precision: 18, scale: 6 }).notNull(), // Ortalama alış fiyatı
+  currentPrice: decimal("current_price", { precision: 18, scale: 6 }).notNull(), // Güncel fiyat
   currency: text("currency").notNull().default("TRY"), // Para birimi (TRY, USD, vb.)
   createdAt: timestamp("created_at").defaultNow(),
 });

@@ -267,8 +267,8 @@ export function AddAssetDialog({ open, onOpenChange, editAsset }: AddAssetDialog
       const response = await fetch(`/api/prices/${symbol}?type=${type}&market=${market}`);
       if (response.ok) {
         const data = await response.json();
-        form.setValue("currentPrice", data.price.toFixed(2));
-        toast({ title: "Fiyat Güncellendi", description: `${symbol} güncel fiyatı: ${data.price.toFixed(2)}` });
+        form.setValue("currentPrice", data.price.toFixed(6));
+        toast({ title: "Fiyat Güncellendi", description: `${symbol} güncel fiyatı: ${data.price.toFixed(6)}` });
       } else {
         toast({ title: "Fiyat Bulunamadı", description: "Bu sembol için fiyat bilgisi alınamadı", variant: "destructive" });
       }

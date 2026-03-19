@@ -274,10 +274,7 @@ const priceFetcherMap: Record<string, PriceFetcher> = {
     return fetchYahooPrice(symbol, market);
   },
   etf: async (symbol, market) => fetchYahooPrice(symbol, market),
-  bes: async (symbol) => {
-    const cached = besFundLocalCache.find((f) => f.symbol.toUpperCase() === symbol.toUpperCase());
-    return cached && cached.price > 0 ? cached.price : await fetchTEFASPrice(symbol);
-  },
+  bes: async (symbol) => fetchTEFASPrice(symbol),
   gayrimenkul: async () => null,
 };
 
@@ -359,7 +356,8 @@ async function withConcurrencyLimit<T>(tasks: (() => Promise<T>)[], maxConcurren
 
 export async function updateAllAssetPrices(): Promise<PriceUpdateResult[]> {
   const assets = await storage.getAssets();
-  const tasks = assets.map((asset) => async (): Promise<PriceUpdateResult> => {
+
+  const makeTask = (asset: (typeof assets)[0]) => async (): Promise<PriceUpdateResult> => {
     const oldPrice = Number(asset.currentPrice) || 0;
     let newPrice: number | null = null;
     let error: string | undefined;
@@ -368,12 +366,27 @@ export async function updateAllAssetPrices(): Promise<PriceUpdateResult[]> {
       if (!fetcher || asset.type === "gayrimenkul") { newPrice = oldPrice; }
       else { newPrice = await fetcher(asset.symbol, asset.market); }
       if (newPrice !== null && newPrice > 0) {
-        await storage.updateAsset(asset.id, { currentPrice: newPrice.toFixed(2) });
+        await storage.updateAsset(asset.id, { currentPrice: newPrice.toFixed(6) });
       }
     } catch (e) { error = e instanceof Error ? e.message : "Unknown error"; }
     return { assetId: asset.id, symbol: asset.symbol, oldPrice, newPrice, success: newPrice !== null && newPrice > 0, error };
-  });
-  return await withConcurrencyLimit(tasks, 5);
+  };
+
+  const besAssets = assets.filter((a) => a.type === "bes");
+  const otherAssets = assets.filter((a) => a.type !== "bes");
+
+  // BES dışındakiler paralel (max 5)
+  const otherResults = await withConcurrencyLimit(otherAssets.map(makeTask), 5);
+
+  // BES: sıralı + 700ms ara (TEFAS rate limit koruması)
+  // fetchTEFASPrice içinde JSON otomatik güncelleniyor
+  const besResults: PriceUpdateResult[] = [];
+  for (const asset of besAssets) {
+    if (besResults.length > 0) await new Promise((r) => setTimeout(r, 700));
+    besResults.push(await makeTask(asset)());
+  }
+
+  return [...otherResults, ...besResults];
 }
 
 export async function fetchSingleAssetPrice(symbol: string, type: string, market: string): Promise<number | null> {
@@ -442,17 +455,35 @@ function tefasDateStr(d: Date): string {
 
 export async function fetchTEFASPrice(fundCode: string): Promise<number | null> {
   try {
-    const today = new Date(); const weekAgo = new Date(today); weekAgo.setDate(today.getDate() - 10);
-    try {
-      const data = await tefasPost("BindFundReturn", { fontip: "EMK", sfonkod: fundCode.toUpperCase(), bastarih: tefasDateStr(weekAgo), bittarih: tefasDateStr(today), fonturkodu: "" });
-      if (data.data?.length) {
-        const sorted = [...data.data].sort((a: any, b: any) => new Date(b.TARIH).getTime() - new Date(a.TARIH).getTime());
-        const price = Number(sorted[0].FIYAT);
-        if (price > 0) return price;
+    const url = `https://www.tefas.gov.tr/FonAnaliz.aspx?FonKod=${encodeURIComponent(fundCode.toUpperCase())}`;
+    const response = await fetch(url, {
+      headers: {
+        "User-Agent": BROWSER_UA,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "tr-TR,tr;q=0.9",
+      },
+    });
+    if (!response.ok) { console.error(`[TEFAS] HTTP ${response.status} for ${fundCode}`); return null; }
+    const html = await response.text();
+    // div.main-indicators > ul.top-list > li:first-child > span içindeki fiyat
+    // Format: "0,140154" (Türkçe ondalık)
+    const match = html.match(/class="top-list"[\s\S]*?<span[^>]*>(\d+,\d+)<\/span>/);
+    if (match) {
+      const price = parseFloat(match[1].replace(",", "."));
+      if (price > 0) {
+        console.log(`[TEFAS] ${fundCode} = ${price}`);
+        // Memory cache ve JSON dosyasını güncelle
+        const entry = besFundLocalCache.find((f) => f.symbol.toUpperCase() === fundCode.toUpperCase());
+        if (entry) {
+          entry.price = price;
+          try {
+            writeFileSync(FUNDS_JSON_PATH, JSON.stringify({ lastUpdated: new Date().toISOString(), funds: besFundLocalCache }, null, 2), "utf-8");
+          } catch (e) { console.warn("[TEFAS] JSON kaydetme hatası:", e); }
+        }
+        return price;
       }
-    } catch { /* fall through */ }
-    const data2 = await tefasPost("BindFundInfo", { fontip: "EMK", fonkod: fundCode.toUpperCase(), bastarih: tefasDateStr(weekAgo), bittarih: tefasDateStr(today), fonstatus: "ACTIVE" });
-    if (data2.data?.length) return Number(data2.data[0].FIYAT) || null;
+    }
+    console.warn(`[TEFAS] Fiyat bulunamadı: ${fundCode}`);
     return null;
   } catch (error) { console.error(`[TEFAS] Failed for ${fundCode}:`, error); return null; }
 }
